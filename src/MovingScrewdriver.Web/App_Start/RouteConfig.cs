@@ -399,6 +399,11 @@ namespace MovingScrewdriver.Web
                 url: "aside/ostatnie-komentarze",
                 defaults: new { controller = "Aside", action = "RecentComments" }
             );
+            _routes.MapRoute(
+                name: "aside-recommended",
+                url: "aside/polecam",
+                defaults: new { controller = "Aside", action = "Recommend" }
+            );
         }
     }
 }

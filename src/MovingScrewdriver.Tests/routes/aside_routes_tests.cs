@@ -23,5 +23,10 @@ namespace MovingScrewdriver.Tests.routes
          {
              "~/aside/twitter".ShouldMapTo<AsideController>(a => a.Twitter());
          }
+         [Fact]
+         public void should_match_recommend()
+         {
+             "~/aside/polecam".ShouldMapTo<AsideController>(a => a.Recommend());
+         }
     }
 }
