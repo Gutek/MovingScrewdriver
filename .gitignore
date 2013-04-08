@@ -1,0 +1,77 @@
+##################### 
+# OS Junk 
+##################### 
+[Tt]humbs.db
+*.DS_Store
+##################### 
+
+##################### 
+# WebStorm
+##################### 
+.idea/
+.idea*/
+.idea/*
+
+##################### 
+# Visual Studio 
+##################### 
+*.[Oo]bj
+*.user
+*.aps
+*.pch
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.opensdf
+*.unsuccessfulbuild
+ipch/
+obj/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+Ankh.NoLoad
+*.pubxml
+
+##################### 
+# Resharper 
+##################### 
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+##################### 
+
+##################### 
+# nCrunch
+##################### 
+*.ncrunchproject
+*.crunchsolution.cache
+*.ncrunchsolution
+*/*.ncrunchproject
+##################### 
+
+##################### 
+# StyleCop 
+##################### 
+StyleCop.Cache
+
+##################### 
+# Logs
+##################### 
+[Ll]ogs
+
+##################### 
+# Misc
+##################### 
+**/App_Data/[Rr]aven
+**/old-images
+[Bb]log[Mm][Ll].xml
+
