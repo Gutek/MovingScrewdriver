@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="BlogML.BlogMLBlogExtendedProperties" Collapsed="true">
+    <Position X="2.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>BlogMLBlogExtendedProperties.cs</FileName>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.BlogMLResource" Collapsed="true">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>BlogMLResource.cs</FileName>
+      <HashCode>AAAAAAAAAACAgAAAAAAAAAAAgABAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.BlogMLWriterBase" Collapsed="true">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>BlogMLWriterBase.cs</FileName>
+      <HashCode>AAIEAAAAAgACAIAAkAAAQEAxAAAAAIkCEQAARAEAEAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLAttachment" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLAttachment.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAYBAAAGAQAAAAAIABAACAAQAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLAuthor" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLAuthor.cs</FileName>
+      <HashCode>AAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLAuthorReference" Collapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLAuthorReference.cs</FileName>
+      <HashCode>AAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLBlog" Collapsed="true">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLBlog.cs</FileName>
+      <HashCode>AABAAAAAwAAEAEAARAAAAEAQAABAEAQAQAAEAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLCategory" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLCategory.cs</FileName>
+      <HashCode>AAAAAAAgAAAgAAAAIAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLCategoryReference" Collapsed="true">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLCategoryReference.cs</FileName>
+      <HashCode>AAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLComment" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLComment.cs</FileName>
+      <HashCode>AAACAAAAAgAAAAAAAAAAIAAAACAAAAAAAQAACAEAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLContent" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLContent.cs</FileName>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAEAYAAAACAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.Meta" Collapsed="true">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLMeta.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABACAAAQAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLNode" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLNode.cs</FileName>
+      <HashCode>AAIAAAACQAAAgEAAAAAAAAQAAAAEAAQAAAAEAAAAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLPost" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLPost.cs</FileName>
+      <HashCode>AoAiGSAAAxECAAEAAAAAAAIQAABAEAAAYAAAACAAIAE=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Class Name="BlogML.Xml.BlogMLPost.AuthorReferenceCollection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Xml\BlogMLPost.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="BlogML.Xml.BlogMLPost.CommentCollection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Xml\BlogMLPost.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="BlogML.Xml.BlogMLPost.TrackbackCollection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Xml\BlogMLPost.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="BlogML.Xml.BlogMLPost.CategoryReferenceCollection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Xml\BlogMLPost.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="BlogML.Xml.BlogMLPost.AttachmentCollection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Xml\BlogMLPost.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLSerializer" Collapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLSerializer.cs</FileName>
+      <HashCode>AAAAAAAAIAAAACAQAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlogML.Xml.BlogMLTrackback" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Xml\BlogMLTrackback.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="BlogML.Pair&lt;K, V&gt;" Collapsed="true">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Pair.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="BlogML.BlogPostTypes" Collapsed="true">
+    <Position X="2.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Enumerators\BlogPostTypes.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BlogML.CommentModerationTypes" Collapsed="true">
+    <Position X="4.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Enumerators\CommentModerationTypes.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAIAAAACAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BlogML.ContentTypes" Collapsed="true">
+    <Position X="6" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Enumerators\ContentTypes.cs</FileName>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAABAABAAAAAAACAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BlogML.SendTrackbackTypes" Collapsed="true">
+    <Position X="7.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Enumerators\SendTrackbackTypes.cs</FileName>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

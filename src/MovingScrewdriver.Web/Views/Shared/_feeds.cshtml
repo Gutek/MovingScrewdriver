@@ -1,0 +1,32 @@
+@using MovingScrewdriver.Web.Extensions
+
+@{
+    var feedUrl = ViewBag.BlogConfig.FeedUrl as string;
+    var feedCommentsUrl = ViewBag.BlogConfig.FeedCommentsUrl as string;
+}
+
+<ul class="top-nav">
+    
+    @if (feedUrl.IsNotNullOrEmpty())
+    {
+        <li><a href="@feedUrl">RSS Postów</a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Rss", "Syndication")">RSS Postów</a></li>
+    }
+
+    <li>|</li>
+    
+    
+    @if (feedCommentsUrl.IsNotNullOrEmpty())
+    {
+        <li><a href="@feedCommentsUrl">RSS Komentarzy</a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("RssComments", "Syndication")">RSS Komentarzy</a></li>
+    }
+
+    
+</ul>

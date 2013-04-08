@@ -1,0 +1,27 @@
+﻿@using MovingScrewdriver.Web.Infrastructure
+@{
+    var currentYear = ApplicationTime.Current.Year;
+}
+
+<section>
+    <h1>Powrót do Przyszłości</h1>
+    <p>
+        Niestety, mimo iż bardzo bym chciał to jeszcze nie odkryli maszyny umożliwiającej
+        podróżowanie w czasie :( Dlatego też, prawdopodobnie URL, który podałeś jest nie poprawny
+        - dla przykładu, napewno wskazuje na rok, który jeszcze nie istnieje :) chyba, że właśnie
+        znalazłeś buga związanego z datą (co jest baaaardzo możliwe).
+    </p>
+    <p>
+        Jeżeli sądzisz, że jest to bug to skontaktuj się ze mną. Moje dane kontaktowe dostępne
+        są po prawej stronie (jeżeli przeglądasz stronę za pomocą desktop), na dole strony 
+        (jeżeli przeglądasz stronę na urządzeniach mobilnych), lub po prostu w sekcji Kontakt :)
+    </p>
+    <p>
+        Jeżeli zaś, obsuneła Ci się ręka kiedy podawałeś rok, to spróbuj poprawić rok w URL, lub po
+        prostu przejdź do strony ze 
+        <a href="@Url.Action("ByDate", "PostsByDate", new { year = currentYear })">
+            wszystkimi postami z aktualnego roku
+        </a>.
+    </p>
+
+</section>

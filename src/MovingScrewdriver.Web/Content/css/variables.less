@@ -1,0 +1,160 @@
+// Grays
+// -------------------------
+@black:                   #000;
+@grayDarker:              #222;
+@grayDark:                #333;
+@gray:                    #555;
+@grayLight:               #999;
+@grayLighter:             #eee;
+@white:                   #fff;
+
+// Scaffolding
+// -------------------------
+
+@body-background:         #e6e6e6;
+@header-background:       #d6d6d6;
+@content-background:      @white;
+@text-color:              @grayDark;
+
+@border-color:			  @grayLighter;
+@border-color-darker:	  darken(@border-color, 5%);
+
+// Links
+// -------------------------
+// previous link color #757575;
+// prevuous link hover color:  #21759b
+// prevuiys header hover color: #0f3647;
+@link-color:              #428bca;
+@link-color-hover:        darken(@post-header-color, 15%);
+@post-header-color:       #21759b;
+@post-header-color-hover: darken(@post-header-color, 15%);
+@nav-link-color:          #6a6a6a;
+@nav-link-color-hover:    @black;
+
+// Forms
+// -------------------------
+
+@input-background:               @grayLighter;
+@input-background-focus:		 @white;
+
+@input-border:                   darken(@input-background, 5%);
+@input-border-radius:            @border-radius-base;
+
+@input-color-placeholder:        @grayLight;
+
+@input-height:                   @line-height-base + 14px; // base line-height + 12px vertical padding + 2px top/bottom border
+
+// Typography
+// -------------------------
+
+@font-family-body:        "Open Sans", "Helvetica Neue", sans-serif;
+@font-family-header:      'Bree Serif', Georgia, serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-body;
+
+@font-size-base:          14px;
+@font-size-large:         @font-size-base * 1.25; // ~18px
+@font-size-small:         @font-size-base * 0.85; // ~12px
+@font-size-mini:          @font-size-base * 0.75; // ~11px
+
+@line-height-base:        20px;
+
+@headings-font-family:    inherit; // empty to use BS default, @font-family-base
+@headings-font-weight:    normal;
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 1.5 line-height
+
+@padding-large:           11px 19px; // 44px
+@padding-small:           2px 10px;  // 26px
+@padding-mini:            0 6px;   // 22px
+
+@border-radius-base:      4px;
+@border-radius-large:     6px;
+@border-radius-small:     3px;
+
+// Content
+// --------------------------------------------------
+
+@page-shadow:             0 10px 30px rgba(0,0,0,0.3);
+
+@page-gutter-width:       40px;
+@content-gutter-width:    20px;
+@content-gutter-height:   24px; // top space, plus space between articles/posts
+
+// Mobile settings
+@page-width:              100%;//440px;
+@content-width:           100%; //@page-width - (2 * @page-gutter-width);
+@content-left-width:      100%;
+@content-right-width:     100%;
+@content-padding:		  @content-gutter-height 10px @content-gutter-height 10px;
+
+// Tablet Settings
+@page-width-tablet:				720px;
+@content-width-tablet:          @page-width-tablet - (2 * @page-gutter-width); // 1040 - 40 left - 40 right
+@content-left-width-tablet:     100%;
+@content-right-width-tablet:    100%;
+//@content-left-width-tablet:     @content-width-tablet - @content-right-width-tablet - @content-gutter-width;
+//@content-right-width-tablet:    260px;
+
+// Normal Desktop settings
+@page-width-dt-normal:				940px;
+@content-width-dt-normal:           @page-width-dt-normal - (2 * @page-gutter-width); // 1040 - 40 left - 40 right
+@content-left-width-dt-normal:      @content-width-dt-normal - @content-right-width-dt-normal - @content-gutter-width;
+@content-right-width-dt-normal:     260px;
+
+// Large Desktop settings
+@page-width-dt-large:				1180px;
+@content-width-dt-large:            @page-width-dt-large - (2 * @page-gutter-width); // 1040 - 40 left - 40 right
+@content-left-width-dt-large:       @content-width-dt-large - @content-right-width-dt-normal - @content-gutter-width;
+@content-right-width-dt-large:      260px;
+
+@normal-content-padding:		  @content-gutter-height @page-gutter-width @content-gutter-height @page-gutter-width;
+
+// Buttons
+// -------------------------
+
+// Brand colors
+// -------------------------
+
+@brand-primary:         #428bca;
+@brand-success:         #5cb85c;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+@brand-info:            #5bc0de;
+
+@btn-background:                     @grayLight;//#a7a9aa;
+@btn-border:                         @btn-background;
+
+@btn-background-primary:             @link-color;
+@btn-border-primary:                 @btn-background-primary;
+
+@btn-background-success:             @brand-success;
+@btn-border-success:                 darken(spin(@btn-background-success, -10), 5%);
+@success-text:                       #468847;
+
+@btn-background-warning:             #fcf8e3;
+@btn-border-warning:                 darken(spin(@btn-background-warning, -10), 3%);
+@warning-text:                       #c09853;
+
+
+@btn-background-danger:              #f2dede;
+@btn-border-danger:                  darken(spin(@btn-background-danger, -10), 3%);
+@danger-text:                         #b94a48;
+
+@btn-background-info:                #d9edf7;
+@btn-border-info:                    darken(spin(@btn-background-info, -10), 7%);
+@info-text:                          #3a87ad;
+
+// Miscellaneous
+// -------------------------
+
+// Hr border color
+@hr-border:                   @grayLighter;
+
+@horizontal-component-offset: 100px;
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../images/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png";

@@ -1,0 +1,28 @@
+﻿@model MovingScrewdriver.Web.ViewModels.PostsViewModel 
+
+<section>
+    <h1>@ViewBag.ArchiveTitle</h1>
+
+    <hr />
+
+    @if (Model.IsFirstPage)
+    {
+        <p>
+            Tego dnia nic nie opublikowałem :(
+        </p>
+    }
+    else
+    {
+        <p>
+            Może kiedyś uda mi sięw ciągu dnia napisać <strong>@Model.CurrentPage</strong> stron postów :) jednak tego dnia na pewno tego nie osiągnąłem.
+        </p>
+        <p>
+            Przepraszam za kłopot, kliknij 
+            <a href="@Url.Action("ByDate", new { page = Model.LastPage, year = ViewBag.Year, month = ViewBag.Month, day = ViewBag.Day })" 
+               title="Przekierowanie na stronę @Model.LastPage">tutaj</a> 
+            a zostaniesz przekierowany do ostatniej strony zawierającej posty.
+        </p>
+    }
+        
+</section>
+

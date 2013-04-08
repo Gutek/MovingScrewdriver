@@ -1,0 +1,27 @@
+﻿@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowWinIe9Meta != null)
+{
+    <!-- ie9 pin to taskbar specifics -->
+    <meta name="msapplication-window" content="width=device-width;height=device-height">
+    <meta name="msapplication-tooltip" content="@ViewBag.BlogConfig.MetaIe9Tooltip" />
+    <meta name="msapplication-starturl" content="@ViewBag.BlogConfig.MetaIe9StartUrl" />
+    <meta name="msapplication-navbutton-color" content="@ViewBag.BlogConfig.MetaIe9NavBarColor">
+    
+    foreach (var task in ViewBag.BlogConfig.MetaIe9Tasks)
+    {
+        <meta name="msapplication-task" content="@task" />
+    }
+    <!-- /ie9 pin to taskbar specifics -->
+}
+
+@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowWin8Meta != null)
+{
+    <!-- win8 tiles specifics -->
+    <meta name="msapplication-TileImage" content="@ViewBag.BlogConfig.MetaWin8TileImage">
+    <meta name="msapplication-TileColor" content="@ViewBag.BlogConfig.MetaWin8TileColor">
+    
+    if(ViewBag.BlogConfig.MetaWin8BadgeShouldShow)
+    {
+        <meta name="msapplication-badge" content="frequency=360; polling-uri=http://ietestdrive2.com/PinnedSites/TweetCounter/microsoft/360" />
+    }
+    <!-- /win8 tiles specifics -->
+}

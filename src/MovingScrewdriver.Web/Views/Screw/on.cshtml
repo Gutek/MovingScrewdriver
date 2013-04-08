@@ -1,0 +1,67 @@
+﻿@model MovingScrewdriver.Web.Models.ScrewdriverConfig
+
+@{
+    Layout = "~/Views/Shared/_ScrewOnLayout.cshtml";
+    ViewBag.Title = "Przykręcanie śrubki | Moving Screwdriver Blog";
+}
+
+
+<article class="post">
+    <header>
+        <h1>Tworzenie bloga</h1>
+    </header>
+    
+    <div class="entry">
+        <p>
+            Podaj niezbędne dane by utworzyć nowego bloga, więcej konfiguracji będzie dostępne na stronie administracyjnej. Tam już
+            będziesz mógł spędzić odpowiednią liczbę minut ;)
+        </p>
+        
+        <form id="create" method="post" data-validate="parsley" novalidate="novalidate">
+            
+            <h2>Informacje o blogu</h2>
+                    
+            <p>
+                <label for="title">Nazwa bloga</label>
+                <input type="text" name="title" size="22" aria-required="true" required="required" />
+            </p>
+            
+            <p>
+                <label for="tagline">Motto bloga</label>
+                <input type="text" name="tagline" size="22" aria-required="true" required="required" />
+            </p>
+            
+            <h2>Oraz trochę o sobie</h2>
+
+            <p>
+                <label for="ownerEmail">Twój email</label>
+                <input type="email" name="ownerEmail" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="ownerNick">Twój nick</label>
+                <input type="text" name="ownerNick" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="ownerFirstName">Twoje imię</label>
+                <input type="text" name="ownerFirstName" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="ownerLastName">Twoje nazwisko</label>
+                <input type="text" name="ownerLastName" size="22" aria-required="true" required="required"  />
+            </p>
+            
+            <h2>To już koniec</h2>
+            <p>
+                Jeżeli podałeś wszystkie wymagane dane powyżej, to <em>dokręć śrubkę</em>
+            </p>
+            <p>
+                <input name="submit" type="submit" id="submit" class="btn-submit" tabindex="5" value="Dokręć śrubkę" data-loading-text="dokręcamy..." />
+            </p>
+        </form>
+    </div>
+</article>
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/bundles/screw-on")"></script>
+}

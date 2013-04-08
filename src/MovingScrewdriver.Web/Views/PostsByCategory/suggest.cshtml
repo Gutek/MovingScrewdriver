@@ -1,0 +1,17 @@
+﻿@model string[]
+
+<section>
+    <h1>Niestety, kategoria <em>@ViewBag.Slug</em> nie istnieje</h1>
+    <hr />
+    
+    <p>
+        Czy chodziło Ci może o:
+    </p>
+    <ul>
+        @foreach (var suggest in Model)
+        {
+            <li><a href="@Url.Action("ByCategory", new { slug = suggest })">@suggest</a></li>
+        }
+    </ul>
+
+</section>

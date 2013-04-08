@@ -1,0 +1,163 @@
+﻿@model MovingScrewdriver.Web.Models.ScrewdriverConfig
+
+@{
+    Layout = "~/Views/Shared/_ScrewOnLayout.cshtml";
+    ViewBag.Title = "Przykręć śrubkę, stwórz bloga";
+}
+
+
+<article class="post">
+    <header>
+        <h1>Tworzenie bloga</h1>
+    </header>
+    
+    <div class="entry">
+        <p>
+            Podaj niezbędne dane by utworzyć nowego bloga, więcej konfiguracji będzie dostępne na stronie administracyjnej. Tam już
+            będziesz mógł spędzić odpowiednią liczbę godzin ;)
+        </p>
+        <p>
+            Masz możliwość skonfigurować swojego bloga, zrób to tak jak chcesz, podając te dane, które chcesz by były wyświetlane.
+        </p>
+        <p>
+            Jeżeli nie jesteś pewny wszystkich danych, to zawsze możesz do tego ekranu wrócić z poziomu admina.
+        </p>
+
+        <form id="create" method="post" data-validate="parsley" novalidate="novalidate">
+            
+            <h2>Informacje o blogu</h2>
+                    
+            <p>
+                <label for="title">Nazwa bloga</label>
+                <input type="text" name="title" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="subTitle">Ekstra tytuł (małe literki)</label>
+                <input type="text" name="subTitle" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="tagline">Motto bloga</label>
+                <input type="text" name="tagline" size="22" aria-required="true" required="required" />
+            </p>
+            
+            <h2>Trochę o sobie</h2>
+
+            <p>
+                <label for="ownerEmail">Twój email</label>
+                <input type="email" name="ownerEmail" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="ownerNick">Twój nick</label>
+                <input type="text" name="ownerNick" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="ownerFirstName">Twoje imię</label>
+                <input type="text" name="ownerFirstName" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="ownerLastName">Twoje nazwisko</label>
+                <input type="text" name="ownerLastName" size="22" />
+            </p>
+            
+            <h2>Klucze (dla serwisów typu google analytics)</h2>
+            
+            <p>
+                <label for="googleAnalyticsKey">Google Analytics Key</label>
+                <input type="text" name="googleAnalyticsKey" size="22"/>
+            </p>
+            <p>
+                <label for="googleSiteVerificationKey">Google Site Verification Key</label>
+                <input type="text" name="googleSiteVerificationKey" size="22"/>
+            </p>
+            <p>
+                <label for="akismetKey">Akismet Key</label>
+                <input type="text" name="akismetKey" size="22" />
+            </p>
+            
+            <h2>Metadane bloga (globalne)</h2>
+            
+            <p>
+                <label for="MetaTitle">Meta Title</label>
+                <input type="text" name="MetaTitle" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="MetaDescription">Meta Description</label>
+                <input type="text" name="MetaDescription" size="22" aria-required="true" required="required" />
+            </p>
+            <p>
+                <label for="MetaCopyright">Meta Copyright</label>
+                <input type="text" name="MetaCopyright" size="22" />
+            </p>
+            <p>
+                <label for="MetaKeywords">Meta Keywords</label>
+                <input type="text" name="MetaKeywords" size="22" />
+            </p>
+            <p>
+                <label for="MetaApplicationName">Meta Application Name</label>
+                <input type="text" name="MetaApplicationName" size="22" />
+            </p>
+            <p>
+                <label for="MetaLang">Meta Language</label>
+                <input type="text" name="MetaLang" size="22" />
+            </p>
+            
+            <h2>Funkcje social</h2>
+            
+            <p>
+                <input type="checkbox" name="showSocialMeta" value="true" style="width: auto;" />
+                <label for="showSocialMeta">Dodaj meta tagi social do strony/wykorzystaj social</label>
+            </p>
+            
+            <p>
+                <label for="MetaTwitterName">Twitter Name</label>
+                <input type="text" name="MetaTwitterName" size="22" />
+            </p>
+            <p>
+                <label for="MetaFbAppId">Facebook App ID</label>
+                <input type="text" name="MetaFbAppId" size="22" />
+            </p>
+            
+            <h2>Meta dane OG</h2>
+            <p>
+                Więcej informacji można znaleźć pod tym adresem: <a href="http://ogp.me/" rel="external nofollow">http://ogp.me/</a>.
+            </p>
+            
+            <p>
+                <label>
+                    <input type="checkbox" name="ShowOgMeta" value="true" style="width: auto;" />
+                    Wykorzystaj OG Meta
+                </label>
+            </p>
+            <p>
+                <label for="MetaOgLocale">OG Locale (na przykład pl-PL, en-US)</label>
+                <input type="text" name="MetaOgLocale" id="MetaOgLocale" size="22" />
+            </p>
+            <p>
+                <label for="MetaOgImage">OG Image</label>
+                <input type="url" name="MetaOgImage" id="MetaOgImage" size="22" />
+            </p>
+            
+            <h2>Meta dane Dublin Core</h2>
+            <p>
+                Więcej informacji można znaleźć pod tymi adresami:
+            </p>
+            <ul>
+                <li>
+                    <a href="http://dublincore.org/documents/dces/" rel="external nofollow">Dublin Core Metadata Element Set, Version 1.1</a>
+                </li>
+                <li>
+                    <a href="http://dublincore.org/documents/usageguide/elements.shtml" rel="external nofollow">Using Dublin Core - The Elements</a>
+                </li>
+            </ul>
+            <h2>To już koniec</h2>
+            <p>
+                Jak przeszedłeś przez konfigurację to teraz możesz resztę olać :) lub dokręcić śrubkę i zacząć się cieszyć swoim nowym blogiem :)
+            </p>
+            <p>
+                <input name="submit" type="submit" id="submit" class="btn-submit" tabindex="5" value="Dokręć śrubkę" />
+            </p>
+        </form>
+    </div>
+    
+
+</article>

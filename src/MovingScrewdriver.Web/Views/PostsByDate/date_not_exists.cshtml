@@ -1,0 +1,36 @@
+﻿@using MovingScrewdriver.Web.Infrastructure
+@{
+    var currentYear = ApplicationTime.Current.Year;
+}
+
+<section>
+    <h1>Niepoprawna data archiwum</h1>
+    <p>
+        Data, która zostałą podana w parametrach nie jest poprawną datą - na przykład:
+    </p>
+    <dl>
+        <dt>Miesiąc</dt>
+        <dd>Liczba podana jest większa od 12 lub mniejsza o 1</dd>
+        <dt>Dzień</dt>
+        <dd>Liczba podana jest większa lub mniejsza od minimalnej liczby dni w danym miesiącu</dd>
+    </dl>
+    <p>
+        Spróbuj się pobawić paremetrami, na przykład, kiedy chcesz wszystkie posty z aktualnego roku
+        to możesz to osiągnąc podając <code>/@currentYear</code> w adresi URL.
+    </p>
+    <p>
+        Jeżeli zaś chcesz wszystkie posty z danego roku i miesiąca styczeń, to wystarczy, że w URL
+        podasz następujący adres: <code>/@currentYear/01</code>.
+    </p>
+    <p>
+        Na końcu możesz też spróbować wyświetlić wszystkie posty z danego dnia: <code>/@currentYear/01/15</code>.
+    </p>
+    <p>
+        Dodatkowo, wszystkie strony typu (Tagi, Kategorie, Posty i archiwum) obsługują stronicowanie, wystarczy
+        że na końcu URL dodasz <code>/strona/NUMER_STRONY</code>, gdzie <code>NUMER_STRONY</code> to liczba dodatnia.
+        Jeżeli żadnego postu nie znajdziesz na danej stronie zostanie specjalnie dla Ciebie wygenerowany
+        URL, który przekieruje Cię na ostatnią stronę spełniającą wszystkie warunki (przy tagach i kategoriach 
+        to nazwa tagu lub kategorii, a przy postach to ostatnia strona zawierająca post).
+    </p>
+
+</section>

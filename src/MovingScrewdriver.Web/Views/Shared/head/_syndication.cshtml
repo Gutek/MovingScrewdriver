@@ -1,0 +1,24 @@
+﻿@{
+
+    var feedUrl = ViewBag.BlogConfig.FeedUrl as string;
+    var feedCommentsUrl = ViewBag.BlogConfig.FeedCommentsUrl as string;
+}
+@if (feedUrl.IsNullOrWhiteSpace())
+{
+    <link rel="alternate" type="application/rss+xml" title="@ViewBag.BlogConfig.MetaApplicationName >> Posty" href="@Url.Action("Rss", "Syndication")" />
+}
+else
+{
+    <link rel="alternate" type="application/rss+xml" title="@ViewBag.BlogConfig.MetaApplicationName >> Posty" href="@feedUrl" />
+}
+
+@if (feedCommentsUrl.IsNullOrWhiteSpace())
+{
+    <link rel="alternate" type="application/rss+xml" title="@ViewBag.BlogConfig.MetaApplicationName >> Komentarze" href="@Url.Action("RssComments", "Syndication")" />
+}
+else
+{
+    <link rel="alternate" type="application/rss+xml" title="@ViewBag.BlogConfig.MetaApplicationName >> Komentarze" href="@feedCommentsUrl" />
+}
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="@Url.Action("Rsd", "Services")" />

@@ -1,0 +1,18 @@
+﻿@{
+    var twitter = ViewBag.BlogOwner.Twitter == null ?
+                      ViewBag.BlogConfig.MetaTwitterName as string
+                      : ViewBag.BlogOwner.Twitter as string;
+}
+
+
+@if (twitter.IsNotNullOrEmpty())
+{    
+    <section>
+        <h3>Twitter</h3>
+        <a class="twitter-timeline" href="https://twitter.com/KONTO" data-widget-id="WIDGET_ID"
+            height="400"
+            data-related="KONTO" data-aria-polite="polite" lang="pl">
+            Tweety przez @@@twitter
+        </a>
+    </section>
+}

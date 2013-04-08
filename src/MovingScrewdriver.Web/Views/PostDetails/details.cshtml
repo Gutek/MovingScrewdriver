@@ -1,0 +1,198 @@
+﻿@using MovingScrewdriver.Web.Extensions
+@model MovingScrewdriver.Web.ViewModels.PostViewModel
+
+@{
+    ViewBag.Title = Model.Post.Title;
+    ViewBag.Description = Model.Post.Description;
+}
+
+
+@section head
+{
+    @Screw.GenerateNextPrevLinkTags(Model)
+}
+
+<article class="post">
+    <header>
+        <h1>@ViewBag.Title</h1>
+        <ul>
+            <li>
+                Opublikowany 
+                <time datetime="@Model.Post.PublishedAt.ToZuluDateTime()" pubdate="pubdate">@Model.Post.PublishedAt.ToLocalDateTime()</time>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="#comments" 
+                   title="@Screw.CommentsLinkTitle(Model.Comments.Count, Model.Post.Title)">
+                    @Screw.CommentsText(Model.Comments.Count)
+                </a> 
+            </li>
+            <li>|</li>
+            <li>
+                @Screw.Categories(Model.Post.Categories)
+            </li>
+        </ul>
+            
+        <small>
+            Tagi: @Screw.Tags(Model.Post.Tags)
+        </small>
+    </header>
+    <div class="entry">
+        
+        @Model.Post.Content
+
+    </div>
+    <footer>
+            
+        <ul>
+            <li>
+                <a href="https://twitter.com/share" class="twitter-share-button" 
+                   data-url="@ViewBag.PageUrl" 
+                   data-via="@Model.Post.Author.TwitterNick" 
+                    @*data-text="@Model.Post.Title"*@
+                   data-lang="pl">Tweet</a>
+            </li>
+            <li>
+                <div class="fb-like" data-href="@ViewBag.PageUrl" 
+                     data-send="false" 
+                     data-layout="button_count" 
+                     data-width="450" data-show-faces="false">
+                        
+                </div>
+            </li>
+            <li>
+                <div class="g-plusone" data-size="medium" data-href="@ViewBag.PageUrl">Poleć to w Google</div>
+            </li>
+        </ul>
+    </footer>
+
+    @Html.TrackbackRdf(Model)
+
+    <nav>
+        <ul>
+            
+            @if (Model.PreviousPost != null)
+            {
+                <li class="pull-left">
+                    <a href="@Url.Action("Details", Model.PreviousPost.ToRouteData())" rel="prev">
+                        ← @Model.PreviousPost.Title
+                    </a>
+                </li>
+            }
+            @if (Model.NextPost != null)
+            {
+                <li class="pull-right">
+                    <a href="@Url.Action("Details", Model.NextPost.ToRouteData())" rel="next">
+                        @Model.NextPost.Title →
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+        
+    <section id="comments" class="comments">
+        <h3>@Screw.CommentsLinkTitle(Model.Comments.Count, Model.Post.Title)</h3>
+        
+        @if (Model.Comments.Any() == false && Model.AreCommentsClosed == false)
+        {
+            <em>Bądź pierwszy, dodaj komentarz :)</em>
+        }
+
+        @foreach (var comment in Model.Comments)
+        {
+            
+            
+            if (comment.IsTrackback || comment.IsPingback)
+            {
+                <article class="trackback" id="comment-@comment.Id">
+                    
+                   
+                    @if (comment.IsTrackback)
+                    {
+                        <text>→ Trackback :</text>
+                    }
+                    else
+                    {
+                        <text>→ Pingback :</text>
+                    }
+                        
+                    <a rel="external nofollow" href="@comment.Url">@comment.Author</a>
+                    
+
+                </article>
+            }
+            else
+            {
+                Html.RenderPartial("../PostComment/_comment", comment);
+            }
+        }
+
+        @if(Model.AreCommentsClosed == false) 
+        {
+            <div id="form" class="form">
+                    
+                <h3>Dołącz do dyskusji</h3>
+                
+                @using(Html.BeginForm("Add", "PostComment", new { id = Model.Post.Id }, FormMethod.Post, new { novalidate="novalidate", dataValidate="parsley", id = "commentform" }))
+                {
+                    <p>
+                        <label for="commenterName">Imię lub Nick (pole wymagane)</label>
+                        <input type="text" name="commenterName" id="commenterName" size="22" tabindex="1" aria-required="true" required="required" placeholder="Twoję Imię lub Nick" />
+                    </p>
+                    <p>
+                        <label for="commenterEmail">Email (nie będzie opublikowany) (pole wymagane)</label>
+                        <input type="email" name="commenterEmail" 
+                               id="commenterEmail" 
+                               size="22" 
+                               tabindex="2" 
+                               aria-required="true" 
+                               required="required" 
+                               placeholder="Twój email"
+                               data-remote-method="POST"
+                               data-trigger="change"
+                               data-remote="@Url.Action("ValidateEmail", "PostComment", new { id = Model.Post.Id})"
+                            />
+                    </p>
+                    <p>
+                        <label for="commenterWebsite">Strona domowa</label>
+                        <input type="url" name="commenterWebsite" id="commenterWebsite" size="22" tabindex="3" placeholder="Twoja strona domowa"/>
+                    </p>
+                    <p>
+                        <label for="commenterComment">Komentarz (pole wymagane)</label>
+                        <textarea name="commenterComment" id="commenterComment" rows="10" tabindex="4" aria-required="true" required="required" placeholder="Twój komentarz..."></textarea>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+                        <label for="subscribe">Poinformuj mnie o nowych komentarzach poprzez email</label>
+                    </p>
+                    <p>
+                        <input name="submit" type="submit" id="submit" class="btn-submit" tabindex="5" value="Dodaj komentarz" data-loading-text="dodaje komentarz..."  />
+                    </p>
+                }
+
+            </div>
+        } 
+        else 
+        {
+            <div id="form" class="form">
+                    
+                <h3>Komentarze zamknięte</h3>
+
+                <p>
+                    Ze względu na systemy spamujące, jestem zmuszony do zamykania możliwości komentowania postu po określonym czasie.
+                </p>
+                <p>
+                    Za niedogodność, przepraszam.
+                </p>
+
+            </div>
+        }    
+        
+    </section>
+
+</article>
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/bundles/add-comment")"></script>
+}

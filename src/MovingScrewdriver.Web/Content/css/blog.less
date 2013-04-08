@@ -1,0 +1,420 @@
+﻿// this is default, so we do not need to specify @media
+
+header[role="banner"] {
+
+    min-width: @page-width;
+    width: 100%;
+    background: @header-background;
+    min-height: 170px;
+    .container-inner();
+    .clear-float();
+
+    h1, h2 {
+        letter-spacing: 1px;
+        -webkit-font-smoothing: subpixel-antialiased !important;
+    }
+
+    h1 {
+        font-size: 2.4em;
+    }
+
+    h2 {
+        margin: .6667em 0 .6667em;
+    }
+
+    hgroup {
+        min-height: 95px;
+        margin: 0 10px 0 10px;
+        padding-top: 30px;
+    }
+
+    .top-nav {
+        color: @gray;
+        font-size: 12px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        margin: 0;
+        padding: 0;
+
+        list-style-type: none;
+
+        li {
+            float: left;
+            margin: 0 5px;
+            position: relative;
+        }
+    }
+
+    h3 {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        float: left;
+        margin-top: 0.70em;
+        margin-left: 1em;
+    }
+
+    .page-nav {
+        min-height: 45px;
+        .box-shadow(0 10px 30px rgba(0,0,0,0.3));
+        background: @body-background;
+        width: @page-width;
+        .clear-float();
+    
+        nav {
+            z-index: 3;
+            width: @page-width;
+            background: @body-background;
+            ul {
+                color: @gray;
+                position: relative;
+                display: block;
+                margin-top: 5px;
+                letter-spacing: 1px;
+                li {
+                    padding: 0 9px 0 0;
+
+                    a {
+                            color: @gray;
+                            font-size: 14px;
+                        }
+
+                        a:hover {
+                            text-decoration: underline;
+                        }
+
+                        .selected {
+                            font-weight: bold;
+                        }
+                }
+            }
+        }
+    }
+
+
+    
+}
+
+body > div.wrapper
+{
+    background: @content-background;
+    margin: 0 auto 0;
+    padding: @content-padding;
+    //width: @content-width;
+    .box-shadow(@page-shadow);
+    .clear-float();
+
+    .content
+    {
+        float: left;
+        position: relative;
+        width: @content-left-width;
+
+        nav.next-prev {
+            float: left;
+            width: 100%;
+        
+            ul {
+                list-style: none;
+                padding-left: 0px;
+                li.pull-left {
+                    float: left;
+                }
+
+                li.pull-right {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    >aside
+    {
+        float: right;
+        width: @content-right-width;
+
+        h1, h2, h3, h4, h5, h6
+        {
+            margin: 0 0 0.6em;
+            text-transform: uppercase;
+        }
+
+        section
+        {
+            clear: left;
+
+            div, p, ul {
+                font-size: @font-size-small;
+            }
+
+            ul
+            {
+                padding: 0;
+
+                li
+                {
+                    border-bottom: 1px solid @border-color;
+                    display: block;
+                    line-height: 1.4;
+                    padding: 8px 10px 8px 0;
+                    overflow: hidden;
+                    .test-overflow();
+                }
+            }
+        }
+    }
+}
+
+
+footer[role="contentinfo"] {
+    margin: 40px 0 0 0;
+    padding: 0 0 40px 0;
+    min-width: @page-width;
+    width: 100%;
+    .container-inner();
+
+    p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+
+.post {
+    
+    padding: 0 0 @content-gutter-height 0;
+
+    .clear-float();
+
+    header {
+        float: left;
+        margin: 0 0 10px;
+        width: 100%;
+
+        h1 {
+            margin: 0px;
+
+            a {
+                color: @post-header-color;
+
+                &:visited {
+                    color: @post-header-color;
+                }
+
+                &:hover {
+                  color: @post-header-color-hover;
+                }
+
+                &:active, &:focus {
+                  color: @post-header-color-hover;
+                }
+            }
+        }
+
+        ul {
+            color: @grayLight;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0;
+            float: left;
+            font-size: @font-size-small;
+
+            li {
+                float: left;
+                padding: 0 9px 0 0;
+            }
+
+            .ul-navigation-links();
+        }
+
+        small {
+            clear:both;
+            color: @grayLight;
+            float: left;
+            font-style: italic;
+        }
+
+    }
+
+    h1 {
+        line-height: 1.3;
+    }
+
+    .entry {
+        float: left;
+        width: 100%;
+
+        ul, ol {
+            margin-bottom: 1.5em;
+
+            ul, ol {
+                margin-bottom: 0;
+            }
+
+            li {
+                margin: 4px 0 10px;
+                line-height: 1.5;
+            }
+        }
+
+        p {
+            margin: 4px 0 10px;
+        }
+    }
+    
+    nav {
+        float: left;
+        width: 100%;
+        font-size: @font-size-small;
+        
+        ul {
+            list-style: none;
+            padding-left: 0px;
+            li.pull-left {
+                float: left;
+            }
+
+            li.pull-right {
+                float: right;
+            }
+        }
+    }
+
+    footer {
+        float: left;
+        width: 100%;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            float: left;
+
+            li {
+                float: left;
+                padding: 0 9px 0 0;
+            }
+        }
+    }
+
+}
+
+
+.comments {
+    clear: both;
+    float: left;
+    position: relative;
+
+    .trackback {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: left;
+        //min-height: 85px;
+        position: relative;
+        width: 100%;
+    }
+
+    .comment {
+
+        &.owner {
+            background-color: @grayLighter;
+        }
+
+        float: left;
+        //min-height: 85px;
+        position: relative;
+        width: 100%;
+
+        border-top: 1px solid @border-color-darker;
+
+        >h1 {
+            display: none;
+        }
+
+        .meta {
+            border-top: 1px solid @border-color-darker;
+            float: left;
+            padding: 10px;
+                        
+            img {
+                margin: 0;
+                display: block;
+            }
+
+            time {
+                display: block;
+                color: @grayLight;
+            }
+        }
+
+        .body {
+            //border-top: 2px solid @border-color;
+            //margin-left: 150px + 2*10;
+            margin-left: 10px;
+            padding: 10px 10px 0 0;
+            
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+
+    #subscribe {
+        margin-left: 10px;
+    }
+}
+
+.form {
+        clear: both;
+        float: left;
+        margin: 0 0 20px;
+        padding: 0 0 20px;
+
+        p {
+            float: left;
+            margin: 0 0 10px 0;
+            width: 100%
+        }
+
+        label {
+            float: left;
+        }
+
+        
+    }
+
+
+figure {
+    position: relative;
+    margin: 1.5em 0;
+    border-top: 1px dotted @post-header-color;
+    border-bottom: 1px dotted @post-header-color;
+
+    figcaption {
+        clear: left;
+        margin: .75em 0;
+        text-align: center;
+        font-style: italic;
+        line-height: 1.5em;
+    }
+
+    img {
+        margin: .75em auto;
+        max-width: 97%;
+    }
+}
+
+
+// facebook
+// --------------------------------------------------
+.fb-like-box,
+.fb-like-box span,
+.fb-like-box.fb_iframe_widget span iframe {
+    background: @header-background;
+    width: @page-width - 1 !important;
+}
+
+.twitter-timeline {
+    width: 99%;
+    height: 399px;
+}

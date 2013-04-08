@@ -1,0 +1,27 @@
+﻿@model MovingScrewdriver.Web.Areas.admin.Models.SignInInput 
+
+@if (ViewData.ModelState.IsValid == false)
+{ 
+    <div class="form-error">
+        @Html.ValidationSummary(true)
+    </div>
+    
+}
+
+
+<article id="user-input" style="width: 350px">
+    <form action="@Url.Action("Index")" method="post">
+        <div style="width: 350px; height: 200px">
+            <div style="float: left; padding-left: 17px; font-size: 16px" class="login-form">
+                <div id="id-form" style="top: 0;">
+                    @Html.EditorFor(x => x.Login)
+                    @Html.EditorFor(x => x.Password)
+                    @Html.EditorFor(x => x.RememberMe)
+                    @Html.HiddenFor(x => x.ReturnUrl)
+                    <div style="float: right; width: 600px">
+                        <input style="width: 180px" type="submit" value="Login"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</article>

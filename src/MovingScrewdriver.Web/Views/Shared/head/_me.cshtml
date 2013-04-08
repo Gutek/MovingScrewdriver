@@ -1,0 +1,9 @@
+﻿@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.MetaMeLinks !=null)
+{
+    <!-- me -->
+    foreach(var me in ViewBag.BlogConfig.MetaMeLinks)
+    {
+        <link rel="me" type="text/html" href="@me"/>
+    }
+    <!-- /me -->
+}

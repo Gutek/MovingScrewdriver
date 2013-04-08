@@ -1,0 +1,83 @@
+﻿// taken from bootstrap: fully!
+
+//
+
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: @line-height-base;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  background-color: @btn-background-warning;
+  border: 1px solid @btn-border-warning;
+  .border-radius(@border-radius-base);
+}
+.alert,
+.alert h4 {
+  // Specified for the h4 to prevent conflicts of changing @headingsColor
+  color: @warning-text;
+}
+.alert h4 {
+  margin: 0;
+}
+
+// Adjust close link position
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: @line-height-base;
+}
+
+
+// Alternate styles
+// -------------------------
+
+.alert-success {
+  background-color: @btn-background-success;
+  border-color: @btn-border-success;
+  color: @success-text;
+}
+.alert-success h4 {
+  color: @success-text;
+}
+.alert-danger,
+.alert-error {
+  background-color: @btn-background-danger;
+  border-color: @btn-border-danger;
+  color: @danger-text;
+}
+.alert-danger h4,
+.alert-error h4 {
+  color: @danger-text;
+}
+.alert-info {
+  background-color: @btn-background-info;
+  border-color: @btn-border-info;
+  color: @info-text;
+}
+.alert-info h4 {
+  color: @info-text;
+}
+
+
+// Block alerts
+// -------------------------
+
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}

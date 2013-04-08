@@ -1,0 +1,89 @@
+﻿//
+// Navbars
+// --------------------------------------------------
+
+// Collapsible navbar toggle
+.btn-navbar {
+    margin-top: 0.5em;
+    margin-right: 1em;
+    display: block;
+    float: right;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 4px;
+
+    // Bars
+    .icon-bar {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 1px;
+    }
+
+    .icon-bar + .icon-bar {
+        margin-top: 3px;
+    }
+}
+
+.collapse {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    .transition(height .35s ease);
+}
+
+.collapse.in {
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+
+    header[role="banner"] {
+
+        .page-nav {
+            width: @page-width-tablet;
+        }
+        nav {
+            left: 0px;
+            width: @page-width-tablet;
+            position: relative;
+            top: 0px;
+            ul {
+                float: left;
+                padding-left: @page-gutter-width - 10;
+                margin-top:1em !important;
+
+                li {
+                    float: left;
+                    padding: 0 9px 0 0;
+
+                    a {
+                        color: @gray;
+                        font-size: 14px;
+                        padding: 15px 10px 13px;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
+
+                    .selected {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .btn-navbar,
+        .navbar-menu {
+            display: none;
+        }
+
+        // Required to make the collapsing navbar work on regular desktops
+        .nav-collapse.collapse {
+            height: auto !important;
+            overflow: visible !important;
+        }
+    }
+}

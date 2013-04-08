@@ -1,0 +1,25 @@
+﻿@using MovingScrewdriver.Web.Infrastructure
+@{
+    var currentYear = ApplicationTime.Current.Year;
+    var footer = ViewBag.BlogConfig.FooterHtml as string;
+    footer = footer ?? string.Empty;
+}
+
+<footer role="contentinfo">
+    <div>
+        
+        @Html.Raw(footer.FormatWith(currentYear))
+
+        @if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.FbLikeBoxShouldRender)
+        {
+            <div class="fb-container">
+            <div class="fb-like-box" 
+                 data-href="@ViewBag.BlogConfig.MetaFbAppLikeBoxUrl" 
+                 data-show-faces="true" 
+                 data-border-color="#e6e6e6" 
+                 data-stream="false" 
+                 data-header="false"></div>
+            </div>
+        }    
+    </div>
+</footer>

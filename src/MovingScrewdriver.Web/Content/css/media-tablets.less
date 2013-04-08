@@ -1,0 +1,68 @@
+﻿// Responsive: Tablets and up
+@media screen and (min-width: 768px) {
+  
+    header[role="banner"] {
+        min-width: @page-width-tablet;
+        .container-inner(@page-width-tablet);
+
+        .page-nav {
+            width: @page-width-tablet;
+            nav  {
+                width: @page-width-tablet;
+            }
+        }
+
+    }
+
+    body > div.wrapper {
+        width: @content-width-tablet;
+        padding: @normal-content-padding;
+        .content
+        {
+            width: @content-left-width-tablet;
+        }
+
+        >aside
+        {
+            width: @content-right-width-tablet;
+        }
+    }
+
+    footer[role="contentinfo"] {
+        min-width: @page-width-tablet;
+        .container-inner(@page-width-tablet);
+    }
+
+    .inner {
+        .inner(@page-width-tablet);
+    }
+
+    .comments {
+        .comment {
+            border-top: none;
+
+            .meta {
+                border-top: 2px solid @border-color-darker;
+                width: 150px;
+            }
+
+
+            .body {
+                border-top: 2px solid @border-color;
+                margin-left: 150px + 2*10;
+            }
+        }
+    }
+
+    .fb-like-box,
+    .fb-like-box span,
+    .fb-like-box.fb_iframe_widget span iframe {
+        height: 185px !important;
+        width: @page-width-tablet - 1 !important;
+    }
+
+    .twitter-timeline {
+        width: @content-right-width-tablet - 1;
+        height: 400px;
+    }
+}

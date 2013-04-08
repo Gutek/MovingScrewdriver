@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_ScrewOnLayout.cshtml";
+    ViewBag.Title = "Problem z bazą danych RavenDB | Moving Screwdriver Blog";
+}
+
+@section banner
+{
+    <a href="@Url.Action("Index", "Ui")" rel="home">
+        <hgroup>
+            <h1>Moving Screwdriver <small>twój własny blog</small> </h1>
+            <h2>Krytyczny błąd</h2>
+        </hgroup>
+    </a>
+                
+    <div class="page-nav">
+        <h3 class="navbar-menu">Menu</h3>
+        <nav class="nav-collapse collapse">
+            <ul class="nav">
+                <li><a href="#" onclick="return false;" class="selected">Błąd Krytyczny</a></li>
+            </ul>
+        </nav>
+    </div>
+}
+
+<article class="post">
+    <header>
+        <h1>Wystąpił problem z połączeniem do bazy danych Raven DB</h1>
+    </header>
+    
+    <div class="entry">
+        <p>When initializing, RaccoonBlog could not reach the RavenDB server configured in web.config, please ensure that:</p>
+        <ul>
+            <li>You have a server running in that address.</li>
+            <li>That it is reachable from the RaccoonBlog server.</li>
+        </ul>
+        <p>
+            Common causes for this error is to simply not have RavenDB running. RaccoonBlog <i>requires</i> RavenDB server to be running.
+        </p>
+        <p>
+            If you don't have RavenDB already, you can download it from <a href="http://ravendb.net/download">http://ravendb.net/download</a>, after which you can
+            simply execute the Raven.Server.exe in the Server directory, to start it.
+        </p>
+    </div>
+</article>

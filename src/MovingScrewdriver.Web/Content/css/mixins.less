@@ -1,0 +1,204 @@
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `::before` to contain the top-margins of child elements.
+
+.clear-float()
+{
+    &::before,
+    &::after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    
+    &::after {
+        clear: both;
+    }
+}
+.text-overflow-dl() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// Webkit-style focus
+.tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.inner(@width: @page-width)
+{
+    margin: 0 auto;
+    position: relative;
+    max-width: @width;
+}
+
+.container-inner(@width: @page-width)
+{
+    div:only-child
+    {
+        .inner(@width);
+    }
+}
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+// Border Radius
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+// Single side border-radius
+.border-top-radius(@radius)
+{
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+.border-right-radius(@radius)
+{
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+}
+
+.border-bottom-radius(@radius)
+{
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+.border-left-radius(@radius)
+{
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+// overflow
+.test-overflow(@type: ellipsis) {
+    -ms-text-overflow: @type;
+    -o-text-overflow: @type;
+    text-overflow: @type;
+}
+
+// Drop shadows
+.box-shadow(@shadow)
+{
+    -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+       -moz-box-shadow: @shadow;
+            box-shadow: @shadow;
+}
+
+// Box sizing
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
+
+// Opacity
+.opacity(@opacity) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})"; // IE8
+}
+
+.ul-navigation-links()
+{
+    a {
+        color: @nav-link-color;
+
+        &:visited
+        {
+            color: @nav-link-color;
+        }
+
+        &:hover
+        {
+            color: @nav-link-color-hover;
+        }
+
+        &:active, &:focus
+        {
+            color: @nav-link-color-hover;
+        }
+    }
+}
+
+// FONTS
+// --------------------------------------------------
+
+#font {
+  #family {
+    .serif() {
+      font-family: @font-family-header;
+    }
+    .sans-serif() {
+      font-family: @font-family-body;
+    }
+    .monospace() {
+      font-family: @font-family-monospace;
+    }
+  }
+  .shorthand(@size: @font-size-base, @weight: normal, @lineHeight: @line-height-base) {
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineHeight;
+  }
+  .serif(@size: @font-size-base, @weight: normal, @lineHeight: @line-height-base) {
+    #font > #family > .serif;
+    #font > .shorthand(@size, @weight, @lineHeight);
+  }
+  .sans-serif(@size: @font-size-base, @weight: normal, @lineHeight: @line-height-base) {
+    #font > #family > .sans-serif;
+    #font > .shorthand(@size, @weight, @lineHeight);
+  }
+  .monospace(@size: @font-size-base, @weight: normal, @lineHeight: @line-height-base) {
+    #font > #family > .monospace;
+    #font > .shorthand(@size, @weight, @lineHeight);
+  }
+}
+
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+.transition-delay(@transition-delay) {
+  -webkit-transition-delay: @transition-delay;
+     -moz-transition-delay: @transition-delay;
+       -o-transition-delay: @transition-delay;
+          transition-delay: @transition-delay;
+}
+.transition-duration(@transition-duration) {
+  -webkit-transition-duration: @transition-duration;
+     -moz-transition-duration: @transition-duration;
+       -o-transition-duration: @transition-duration;
+          transition-duration: @transition-duration;
+}
+
+.placeholder(@color: @input-color-placeholder) {
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}

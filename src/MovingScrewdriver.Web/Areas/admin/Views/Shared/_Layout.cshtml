@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="lang" content="pl" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        
+        <meta name="viewport" content="width=device-width" />
+
+        <title>@ViewBag.Title</title>
+        
+        @* We do not want to have this page indexed by google *@
+        <meta name="robots" content="noindex" />
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.css")" />
+        
+        @Html.Partial("_html5shiv")
+
+    </head>
+    
+    <body>
+        
+        <!-- header -->
+        <header role="banner">
+            <div>
+                
+                @RenderSection("banner", false)
+                
+                @if (!IsSectionDefined("banner"))
+                {
+                    <a href="@Url.Action("Index", "Ui")" rel="home">
+                        <hgroup>
+                            <h1>Moving Screwdriver <small>twój własny blog</small> </h1>
+                            <h2>Dokręcamy śrubki</h2>
+                        </hgroup>
+                    </a>
+                
+                    <div class="page-nav">
+                        <h3 class="navbar-menu">Menu</h3>
+                        <nav class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li><a href="#" onclick="return false;" class="selected">Przykręcamy śrubkę</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                }
+            </div>
+        </header>
+        <!-- /header -->
+
+        <!-- content -->
+        <div class="wrapper">
+            
+            <div class="content force-max-width" id="content" role="main">
+                @RenderBody()
+            </div>
+
+        </div>
+        <!-- /content -->
+
+        <!-- footer -->
+        <footer role="contentinfo">
+            <div>
+                <p>
+                    Moving Screwdriver utworzony przez Jakuba Gutkowskiego. 
+                </p>
+            </div>
+        </footer>
+        <!-- /footer -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="@Url.Content("~/Content/js/lib/jquery-1.9.1.min.js")"><\/script>')</script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-transition.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-collapse.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-button.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/ie10wp8.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/messages.pl.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/parsley.js")"></script>
+
+        @RenderSection("scripts", false)
+    </body>
+
+</html>

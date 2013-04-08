@@ -1,0 +1,53 @@
+﻿@using MovingScrewdriver.Web.Extensions
+@model MovingScrewdriver.Web.ViewModels.PostsArchiveViewModel
+@{
+    ViewBag.Title = "Archiwum";
+}
+
+<section>
+    <h1>Archiwum</h1>
+    
+    @foreach (var postsInMonth in Model.ByYearAndMonth)
+    {
+        <article>
+            <h2>
+                <a href="@Url.ActionResetPage("ByDate", "PostsByDate", new { year = postsInMonth.Year, month = postsInMonth.Month })">@postsInMonth.MonthInYearName</a>
+            </h2>
+            <ul>
+                
+                @foreach (var post in postsInMonth.Posts)
+                {
+                    <li>
+                        <time datetime="@post.PublishAt.ToZuluDateTime()" pubdate="pubdate">[@post.PublishAt.ToLocalDate()]</time>
+                        <a href="@Url.Action("Details", "PostDetails", post.ToRouteData())">@post.Title</a>
+                    </li>
+                }
+            </ul>
+        </article> 
+    }
+    
+    @if (Model.HasNextPage || Model.HasPrevPage)
+    {
+        <nav class="next-prev">
+            <ul>
+            
+                @if (Model.HasNextPage)
+                {
+                    <li class="pull-left">
+                        <a href="@Html.NextPageUrl(Model.CurrentPage, false)" rel="prev">
+                            ← Poprzednia strona
+                        </a>
+                    </li>
+                }
+                @if (Model.HasPrevPage)
+                {
+                    <li class="pull-right">
+                        <a href="@Html.PrevPageUrl(Model.CurrentPage, false)" rel="next">
+                            Następna strona →
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+</section>

@@ -1,0 +1,18 @@
+﻿@using MovingScrewdriver.Web.Extensions
+@model List<MovingScrewdriver.Web.ViewModels.RecentCommentViewModel> 
+
+<section>
+    <h3>Najnowsze Komentarze</h3>
+    
+    <ul>
+        @foreach (var comment in Model)
+        {
+            var postUrl = Url.Action("Details", "PostDetails", comment.ToRouteData());
+            
+            <li>
+                Dodany przez @Aside.CommentAuthor(comment) do <a href="@postUrl#comment-@comment.CommentId">@comment.PostTitle</a>
+            </li>
+        }
+    </ul>
+
+</section>

@@ -1,0 +1,99 @@
+﻿// Responsive: Desktops and up
+@media screen and (min-width: 992px) {
+    header[role="banner"] {
+        min-width: @page-width-dt-normal;
+        .container-inner(@page-width-dt-normal);
+        
+        .page-nav  {
+            width: @page-width-dt-normal;
+
+            nav  {
+                width: @page-width-dt-normal;
+            }
+        }
+        
+    }
+
+    body > div.wrapper {
+        width: @content-width-dt-normal;
+
+        .content
+        {
+            width: @content-left-width-dt-normal;
+        }
+
+        >aside
+        {
+            width: @content-right-width-dt-normal;
+        }
+    }
+
+    footer[role="contentinfo"] {
+        min-width: @page-width-dt-normal;
+        .container-inner(@page-width-dt-normal);
+    }
+
+    .inner {
+        .inner(@page-width-dt-normal);
+    }
+
+    .fb-like-box,
+    .fb-like-box span,
+    .fb-like-box.fb_iframe_widget span iframe {
+        height: 185px !important;
+        width: @page-width-dt-normal - 1 !important;
+    }
+    .twitter-timeline {
+        height: 400px;
+        width: @content-right-width-dt-normal - 1;
+    }
+}
+
+// Responsive: Large desktops and up
+@media screen and (min-width: 1200px) {
+    header[role="banner"] {
+        min-width: @page-width-dt-large;
+        .container-inner(@page-width-dt-large);
+
+        .page-nav {
+            width: @page-width-dt-large;
+            nav  {
+                width: @page-width-dt-large;
+            }
+        }
+    }
+
+    body > div.wrapper {
+        width: @content-width-dt-large;
+
+        .content
+        {
+            width: @content-left-width-dt-large;
+        }
+
+        >aside
+        {
+            width: @content-right-width-dt-large;
+        }
+    }
+
+    footer[role="contentinfo"] {
+        min-width: @page-width-dt-large;
+        .container-inner(@page-width-dt-large);
+    }
+
+    .inner {
+        .inner(@page-width-dt-large);
+    }
+
+    .fb-like-box,
+    .fb-like-box span,
+    .fb-like-box.fb_iframe_widget span iframe {
+        height: 185px !important;
+        width: @page-width-dt-large - 1 !important;
+    }
+    .twitter-timeline {
+        height: 400px;
+        width: @content-right-width-dt-large - 1;
+    }
+}

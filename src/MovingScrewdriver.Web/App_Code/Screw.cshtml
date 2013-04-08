@@ -1,0 +1,134 @@
+﻿@using System.Collections
+@using System.Web.Mvc
+@using MovingScrewdriver.Web.Extensions
+@using MovingScrewdriver.Web.Models
+@using MovingScrewdriver.Web.ViewModels
+
+@helper GenerateNextPrevLinkTags(PostsViewModel model) 
+{
+    var html = Html.GetPageHelper();
+    
+    if (model.HasNextPage)
+    {
+        @:<link rel="next" href="@html.NextPageUrl(model.CurrentPage)" />
+    }
+    
+    if (model.HasPrevPage)
+    {
+        @:<link rel="prev" href="@html.PrevPageUrl(model.CurrentPage)" />
+    }
+}
+@helper GenerateNextPrevLinkTags(PostViewModel model) 
+{
+    var urlHelper = new UrlHelper(Context.Request.RequestContext);
+    
+    if (model.NextPost != null)
+    {
+        @:<link rel="next" href="@urlHelper.AbsoluteAction("Details", "PostDetails", model.NextPost.ToRouteData())" />
+    }
+    
+    if (model.PreviousPost != null)
+    {
+        @:<link rel="prev" href="@urlHelper.AbsoluteAction("Details", "PostDetails", model.PreviousPost.ToRouteData())" />
+    }
+}
+
+@helper SetBaseUrl() {
+    var page = PageContext.Page as WebViewPage;
+    var urlHelper = new UrlHelper(Context.Request.RequestContext);
+    
+    page.ViewBag.BaseUrl = "{0}://{1}{2}".FormatWith(Request.Url.Scheme, Request.Url.Authority, urlHelper.Content("~"));
+}
+
+@helper DoTitleMagic(){
+    var page = PageContext.Page as WebViewPage;
+
+    // firstly page title != blog title
+    var lang = "pl";
+    var htmlTitle = page.ViewBag.Title as MvcHtmlString;
+    
+    var title = htmlTitle == null ? 
+        ((page.ViewBag.Title as string) ?? 
+        string.Empty) : htmlTitle.ToHtmlString();
+    
+
+    if (page.ViewBag.BlogConfig != null)
+    {
+        lang = page.ViewBag.BlogConfig.MetaLang;
+
+        if (title.IsNotNullOrEmpty())
+        {
+            title = "{0} | {1}".FormatWith(title, page.ViewBag.BlogConfig.Title as string);
+        }
+        else
+        {
+            title = page.ViewBag.BlogConfig.BlogFullTitle;
+        }
+    }
+
+    // so we will be able to access it
+    page.ViewBag.PageTitle = title;
+    // not sure how to do it, this if the fastest way
+    page.ViewBag.PageUrl = Request.Url.AbsoluteUri.Replace("strona/1", string.Empty);
+    page.ViewBag.MetaLang = lang;
+}
+
+@helper CommentsLinkTitle(int count, MvcHtmlString title)
+{
+    var pattern = "{0} {1} do \"{2}\"";
+    
+    @pattern.FormatWith(count, count.GetCommentsText(), title)
+}
+
+@helper CommentsText(int count) {
+
+    var pattern = "{0} {1}";
+    
+    @pattern.FormatWith(count, count.GetCommentsText())
+}
+
+@helper Categories(IEnumerable<TagDetails> categories) {
+
+    var urlHelper = new UrlHelper(Context.Request.RequestContext);
+    
+    var pattern = "<a href=\"{0}\" title=\"Zobacz wszystkie posty w kategorii {1}\">{1}</a>";
+
+    var text = categories.Select(cat => pattern.FormatWith(urlHelper.Action("ByCategory", "PostsByCategory", new {slug = cat.Slug }), cat.Title)).ToList();
+
+    @:@MvcHtmlString.Create(string.Join(", ", text))
+}
+
+@helper Tags(IEnumerable<TagDetails> tags) {
+    
+    var urlHelper = new UrlHelper(Context.Request.RequestContext);
+    var pattern = "<a href=\"{0}\" title=\"Zobacz wszystkie posty zawierające tag {1}\">{1}</a>";
+
+    var text = tags.Select(
+        cat => pattern.FormatWith(
+            urlHelper.Action("ByTags", "PostsByTags", new { slug = cat.Slug })
+            , cat.Title)
+        ).ToList();
+
+    @:@MvcHtmlString.Create(string.Join(", ", text))
+}
+
+@helper CommentGravatar(PostViewModel.Comment comment) {
+
+    var url = "http://www.gravatar.com/avatar.php?gravatar_id={0}&size=48&default=identicon";
+    
+    <img src="@url.FormatWith(comment.EmailHash)" 
+         alt="Zdjęcie przedstawiające Gravatar @comment.Author" />
+}
+
+@helper CommentAuthor(PostViewModel.Comment comment) {
+    
+    if (comment.Url.IsNotNullOrWhiteSpace())
+    {
+        <a href="@comment.Url" rel="external nofollow" target="_blank">@comment.Author</a>
+    }
+    else
+    {
+        @:@comment.Author
+    }
+    
+}

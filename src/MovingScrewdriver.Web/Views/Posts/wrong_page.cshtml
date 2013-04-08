@@ -1,0 +1,29 @@
+﻿@model MovingScrewdriver.Web.ViewModels.PostsViewModel 
+
+@if (Model.IsFirstPage)
+{
+    <section>
+        <h1>Dopiero zaczynam</h1>
+        <p>
+            Więc pewnie niebawem coś się tutaj pojawi :) mam taką nadzieję.
+        </p>
+        
+    </section>
+}
+else
+{
+    <section>
+        <h1>Powrót Do Przyszłości</h1>
+        <p>
+            Może kiedyś uda mi się dobić do strony <strong>@Model.CurrentPage</strong> z postami, 
+            jednak aktualnie jest ich troszkę mniej :(
+        </p>
+        <p>
+            Przepraszam za kłopot, kliknij 
+            <a href="@Url.Action("AllPosts", new { page = Model.LastPage })" 
+               title="Przekierowanie na stronę @Model.LastPage">tutaj</a> 
+            a zostaniesz przekierowany do ostatniej strony zawierającej posty.
+        </p>
+
+    </section>
+}

@@ -1,0 +1,31 @@
+﻿
+//Auto added on each form item that has Parsley validation.
+.parsley-validated {
+
+}
+
+//Auto added on each form item that has successfully passed validation.
+.parsley-success {
+    //border: 1px solid @btn-border-success !important;
+}
+
+//Auto added on each form item that did not pass Parsley validation.
+.parsley-error {
+    border: 1px solid @btn-border-danger !important;
+    color: @danger-text !important;
+    background: lighten(@btn-border-danger, 30%) !important;
+}
+
+.parsley-error:focus {
+    background: @input-background-focus !important;
+}
+
+//Auto added after each form item that did not pass Parsley validation. Container for errors <li>.
+ul.parsley-error-list {
+    color: #b94a48;
+}
+
+//Message displayed if constraint failed validation.
+li.parsley-error {
+    // this does not work, with HTML5 you have cls: required, type etc not parslay-error
+}

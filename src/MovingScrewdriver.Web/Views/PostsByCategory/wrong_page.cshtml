@@ -1,0 +1,18 @@
+﻿@model MovingScrewdriver.Web.ViewModels.PostsViewModel 
+
+<section>
+    <h1>Wszystkie posty w kategorii: <em>@ViewBag.ResolvedSlug</em></h1>
+    <hr />
+    
+    <p>
+        Niestety, strona o numerze <strong>@Model.CurrentPage</strong> nie istnieje :(
+    </p>
+    <p>
+        Przepraszam za kłopot, kliknij 
+        <a href="@Url.Action("ByCategory", new { slug = ViewBag.Slug, page = Model.LastPage })" 
+           title="Przekierowanie na stronę @Model.LastPage">tutaj</a> 
+        a zostaniesz przekierowany do ostatniej strony zawierającej posty w kategorii 
+        <em>@ViewBag.ResolvedSlug</em>.
+    </p>
+    
+</section>

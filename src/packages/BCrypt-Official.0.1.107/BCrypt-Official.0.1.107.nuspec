@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>BCrypt-Official</id>
+    <version>0.1.107</version>
+    <title>BCrypt.Net</title>
+    <authors>rdez</authors>
+    <owners>rdez</owners>
+    <licenseUrl>http://bcrypt.codeplex.com/license</licenseUrl>
+    <projectUrl>http://bcrypt.codeplex.com/</projectUrl>
+    <iconUrl>https://nugetgallery.blob.core.windows.net/icons/BCrypt-Official.0.1.107.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>A .Net port of jBCrypt implemented in C#. It uses a variant of the Blowfish encryption algorithm’s keying schedule, and introduces a work factor, which allows you to determine how expensive the hash function will be, allowing the algorithm to be "future-proof".</description>
+    <summary>A .Net port of jBCrypt implemented in C#. It uses a variant of the Blowfish encryption algorithm’s keying schedule, and introduces a work factor, which allows you to determine how expensive the hash function will be, allowing the algorithm to be "future-proof".</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>bcrypt c# security password</tags>
+    <references>
+      <reference file="BCrypt.Net.dll" />
+    </references>
+  </metadata>
+</package>

@@ -1,0 +1,18 @@
+﻿@{
+    var desc = ViewBag.Description as string;
+}
+
+@if(ViewBag.BlogConfig != null)
+{
+    <!-- site meta -->
+    <meta lang="@ViewBag.BlogConfig.MetaLang"/>
+    <meta name="author" content="@ViewBag.BlogConfig.OwnerFullName" />
+    <meta name="copyright" content="@ViewBag.MetaCopyright" />
+    <meta name="description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
+    <meta name="keywords" content="@ViewBag.BlogConfig.MetaKeywords" />
+
+    <meta name="application-name" content="@ViewBag.BlogConfig.MetaApplicationName" />
+    
+    <meta name="canonical" content="@ViewBag.PageUrl" />
+    <!-- /site meta -->
+}

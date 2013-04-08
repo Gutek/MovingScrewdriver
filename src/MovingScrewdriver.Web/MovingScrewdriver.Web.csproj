@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C602106D-CA1E-4767-8361-7EC3FAA3A379}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MovingScrewdriver.Web</RootNamespace>
+    <AssemblyName>MovingScrewdriver.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.0.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.3.0.1\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.0.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="BCrypt.Net">
+      <HintPath>..\packages\BCrypt-Official.0.1.107\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcServerV2">
+      <HintPath>..\packages\xmlrpcnet-server.3.0.0.266\lib\net20\CookComputing.XmlRpcServerV2.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\xmlrpcnet.3.0.0.266\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\packages\DataAnnotationsExtensions.MVC3.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Extended">
+      <HintPath>..\packages\NLog.Extended.2.0.0.2000\lib\net40-full\NLog.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions, Version=2.0.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Client.2.0.2330\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Embedded, Version=2.0.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Embedded.2.0.2330\lib\net40\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=2.0.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Client.2.0.2330\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database, Version=2.0.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Database.2.0.2330\lib\net40\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteDebugger">
+      <HintPath>..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.2.0.0\lib\NETFramework40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Akismet.NET\Comment.cs" />
+    <Compile Include="Akismet.NET\IValidator.cs" />
+    <Compile Include="Akismet.NET\Validator.cs" />
+    <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
+    <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\admin\Models\SignInInput.cs" />
+    <Compile Include="Controllers\About\AboutController.cs" />
+    <Compile Include="Controllers\About\Me.cs" />
+    <Compile Include="Controllers\AbstractController.cs" />
+    <Compile Include="Controllers\Aside\AsideController.cs" />
+    <Compile Include="Controllers\Aside\Me.cs" />
+    <Compile Include="Controllers\Aside\Twitter.cs" />
+    <Compile Include="Controllers\Aside\RecentComments.cs" />
+    <Compile Include="Controllers\Error\404.cs" />
+    <Compile Include="Controllers\Error\Ups.cs" />
+    <Compile Include="Controllers\PostComment\Add.cs" />
+    <Compile Include="Controllers\PostComment\PostCommentController.cs" />
+    <Compile Include="Controllers\PostComment\ValidateEmail.cs" />
+    <Compile Include="Controllers\PostDetails\Details.cs" />
+    <Compile Include="Controllers\PostsByCategory\PostsByCategoryController.cs" />
+    <Compile Include="Controllers\PostsByDate\PostsByDatesController.cs" />
+    <Compile Include="Controllers\PostsByTags\PostsByTagsController.cs" />
+    <Compile Include="Controllers\ErrorRaven\ErrorRavenController.cs" />
+    <Compile Include="Controllers\Services\Trackback.cs" />
+    <Compile Include="Controllers\Services\GoogleSiteMap.cs" />
+    <Compile Include="Controllers\Services\ServicesController.cs" />
+    <Compile Include="Controllers\Services\Rsd.cs" />
+    <Compile Include="Controllers\Error\ErrorController.cs" />
+    <Compile Include="Controllers\Legacy\Archive.cs" />
+    <Compile Include="Controllers\Legacy\About.cs" />
+    <Compile Include="Controllers\Legacy\Contact.cs" />
+    <Compile Include="Controllers\Legacy\PostsByDate.cs" />
+    <Compile Include="Controllers\Legacy\PostBySlug.cs" />
+    <Compile Include="Controllers\Legacy\_LegacyController.cs" />
+    <Compile Include="Controllers\Legacy\PostByUid.cs" />
+    <Compile Include="Controllers\PostsByCategory\ByCategory.cs" />
+    <Compile Include="Controllers\PostsByDate\Archive.cs" />
+    <Compile Include="Controllers\PostsByDate\ByDate.cs" />
+    <Compile Include="Controllers\PostsByTags\ByTags.cs" />
+    <Compile Include="Controllers\PostsPagingController.cs" />
+    <Compile Include="Controllers\Posts\AllPosts.cs" />
+    <Compile Include="Controllers\Posts\PostsController.cs" />
+    <Compile Include="Controllers\PostDetails\PostDetailsController.cs" />
+    <Compile Include="Controllers\Screw\Done.cs" />
+    <Compile Include="Controllers\Syndication\RssByCategory.cs" />
+    <Compile Include="Controllers\Syndication\RssByTag.cs" />
+    <Compile Include="Controllers\Syndication\RssComments.cs" />
+    <Compile Include="Controllers\Syndication\Rss.cs" />
+    <Compile Include="Controllers\Syndication\SyndicationController.cs" />
+    <Compile Include="Controllers\Screw\On.cs" />
+    <Compile Include="Controllers\Screw\ScrewController.cs" />
+    <Compile Include="Extensions\DocumentSessionExtensions.cs" />
+    <Compile Include="Extensions\DateTimeOffsetExtensions.cs" />
+    <Compile Include="Extensions\GeneralUtils.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\PostExtensions.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
+    <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Extensions\System.Int32.cs" />
+    <Compile Include="Extensions\System.String.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Extensions\WebPageExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ActionAttributes\AjaxOnlyAttribute.cs" />
+    <Compile Include="Infrastructure\ActionResults\XResult.cs" />
+    <Compile Include="Infrastructure\ApplicationTime.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\DescriptionResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\TrackbackProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\RecentCommentsViewModelProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\DefaultMappingProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\AbstractProfile.cs" />
+    <Compile Include="Infrastructure\Filters\LogFilterAttribute.cs" />
+    <Compile Include="Infrastructure\Indexes\Category_Count.cs" />
+    <Compile Include="Infrastructure\Indexes\PostComments_CreationDate.cs" />
+    <Compile Include="Infrastructure\Indexes\Posts_ByMonthPublished_Posts.cs" />
+    <Compile Include="Infrastructure\Indexes\Tags_Count.cs" />
+    <Compile Include="Infrastructure\Modules\AutoMapperModule.cs" />
+    <Compile Include="Infrastructure\RemoteFile.cs" />
+    <Compile Include="Models\CommentType.cs" />
+    <Compile Include="Models\PostReference.cs" />
+    <Compile Include="Services\AkismetService.cs" />
+    <Compile Include="Services\PingbackService.cs" />
+    <Compile Include="ViewModels\AuthorDetails.cs" />
+    <Compile Include="ViewModels\CommentInput.cs" />
+    <Compile Include="ViewModels\PagingViewModel.cs" />
+    <Compile Include="ViewModels\PostViewModel.cs" />
+    <Compile Include="ViewModels\TagDetails.cs" />
+    <Compile Include="Services\MetaWeblog.cs" />
+    <Compile Include="Services\Model\BlogInfo.cs" />
+    <Compile Include="Services\Model\Category.cs" />
+    <Compile Include="Services\Model\CategoryInfo.cs" />
+    <Compile Include="Services\Model\Enclosure.cs" />
+    <Compile Include="Services\Model\MediaObject.cs" />
+    <Compile Include="Services\Model\MediaObjectInfo.cs" />
+    <Compile Include="Services\Model\MtCategory.cs" />
+    <Compile Include="Services\Model\Post.cs" />
+    <Compile Include="Services\Model\Source.cs" />
+    <Compile Include="Services\Model\UserInfo.cs" />
+    <Compile Include="Services\Model\WpAuthor.cs" />
+    <Compile Include="Services\Model\WpCategoryInfo.cs" />
+    <Compile Include="Services\Model\WpNewCategory.cs" />
+    <Compile Include="Services\Model\WpTagInfo.cs" />
+    <Compile Include="ViewModels\PostsArchive.cs" />
+    <Compile Include="ViewModels\TrackbackInput.cs" />
+    <Content Include="apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="apple-touch-icon-144x144-precomposed.png" />
+    <Content Include="apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="App_Code\Screw.cshtml" />
+    <Content Include="App_Code\Aside.cshtml" />
+    <Compile Include="Infrastructure\AutoMapper\PostsViewModelProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\PostViewModelProfile.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\DateTimeTypeConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\EmailHashResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\MarkdownResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\MvcHtmlStringConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\RavenIdResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\SanitizeHtml.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\StringToGuidConverter.cs" />
+    <Compile Include="Infrastructure\AutoMapper\Resolvers\UrlResolver.cs" />
+    <Content Include="apple-touch-icon-precomposed.png" />
+    <Content Include="apple-touch-icon.png" />
+    <Content Include="Content\css\pnotify.css">
+      <DependentUpon>pnotify.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\pnotify.min.css">
+      <DependentUpon>pnotify.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\prism.css">
+      <DependentUpon>prism.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\prism.min.css">
+      <DependentUpon>prism.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\rainbow.css">
+      <DependentUpon>rainbow.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\rainbow.min.css">
+      <DependentUpon>rainbow.less</DependentUpon>
+    </Content>
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\js\lib\_prism.js" />
+    <Content Include="Content\js\lib\jquery.pnotify.js" />
+    <Content Include="Content\js\lib\rainbow.js" />
+    <Content Include="Content\js\views\add-comment.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Content\css\pnotify.less" />
+    <Content Include="Content\css\alerts.less" />
+    <Content Include="Content\css\sprites.less" />
+    <Content Include="Areas\admin\Views\Web.config" />
+    <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\admin\Views\Login\Index.cshtml" />
+    <Compile Include="Extensions\System.Object.cs" />
+    <Content Include="Content\css\prism.less" />
+    <Content Include="Content\css\rainbow.less" />
+    <None Include="Infrastructure\AutoMapper\TagsListViewModelMapperProfile.cs" />
+    <Compile Include="Infrastructure\HttpContextFactory.cs" />
+    <Compile Include="Infrastructure\Indexes\Posts_Statistics.cs" />
+    <Compile Include="Infrastructure\Modules\RavenDbModule.cs" />
+    <Compile Include="Infrastructure\Modules\RavenSessionModule.cs" />
+    <Compile Include="Infrastructure\SlugConverter.cs" />
+    <Compile Include="Infrastructure\Validation\ArchiveDateValidator.cs" />
+    <Compile Include="ViewModels\AjaxResult.cs" />
+    <Compile Include="Models\BlogOwner.cs" />
+    <Compile Include="ViewModels\RecentCommentViewModel.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostComments.cs" />
+    <Compile Include="ViewModels\PostsViewModel.cs" />
+    <Compile Include="Models\ScrewdriverConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\images\archive.ico" />
+    <Content Include="Content\images\twitter.ico" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Views\PostDetails\details.cshtml" />
+    <Content Include="Views\PostsByCategory\list.cshtml" />
+    <Content Include="Views\PostsByTags\list.cshtml" />
+    <Content Include="Views\PostsByCategory\suggest.cshtml" />
+    <Content Include="Views\PostsByTags\suggest.cshtml" />
+    <Content Include="Views\Aside\recent_comments.cshtml" />
+    <Content Include="Views\Posts\wrong_page.cshtml" />
+    <Content Include="Views\PostsByCategory\wrong_page.cshtml" />
+    <Content Include="Views\PostsByTags\wrong_page.cshtml" />
+    <Content Include="Views\PostsByDate\list.cshtml" />
+    <Content Include="Views\PostsByDate\date_not_exists.cshtml" />
+    <Content Include="Views\PostsByDate\future_posts.cshtml" />
+    <Content Include="Views\PostsByDate\wrong_page.cshtml" />
+    <Content Include="Views\PostsByDate\past_posts.cshtml" />
+    <Content Include="Views\Shared\head\_syndication.cshtml" />
+    <Content Include="Services\MetaWeblogAPI.ashx" />
+    <Content Include="Views\About\me.cshtml" />
+    <Content Include="Views\Shared\_navigation.cshtml" />
+    <Content Include="Views\PostsByDate\archive.cshtml" />
+    <Content Include="Views\Shared\_feeds.cshtml" />
+    <Content Include="Views\Aside\twitter.cshtml" />
+    <Content Include="Views\Aside\me.cshtml" />
+    <Content Include="Services\Pingback.ashx" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\PostComment\_comment.cshtml" />
+    <Content Include="Views\PostComment\_spam.cshtml" />
+    <Content Include="Views\Error\404.cshtml" />
+    <Content Include="Views\Error\ups.cshtml" />
+    <Content Include="Views\PostsByDate\archive_not_exists.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\buttons.css">
+      <DependentUpon>buttons.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\buttons.min.css">
+      <DependentUpon>buttons.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-desktops.css">
+      <DependentUpon>media-desktops.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-desktops.min.css">
+      <DependentUpon>media-desktops.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-mobile.css">
+      <DependentUpon>blog.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-mobile.min.css">
+      <DependentUpon>blog.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-print.css">
+      <DependentUpon>media-print.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-print.min.css">
+      <DependentUpon>media-print.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-tablets.css">
+      <DependentUpon>media-tablets.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\media-tablets.min.css">
+      <DependentUpon>media-tablets.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\mixins.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\mixins.min.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\normalize.css">
+      <DependentUpon>normalize.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\normalize.min.css">
+      <DependentUpon>normalize.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\parsley.css">
+      <DependentUpon>parsley.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\parsley.min.css">
+      <DependentUpon>parsley.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\site.min.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\variables.min.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\wrench.css">
+      <DependentUpon>wrench.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\wrench.min.css">
+      <DependentUpon>wrench.less</DependentUpon>
+    </Content>
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\ie10wp8.js" />
+    <Content Include="Content\js\lib\bootstrap-collapse.js" />
+    <Content Include="Content\js\lib\bootstrap-transition.js" />
+    <Content Include="Content\js\lib\bootstrap-button.js" />
+    <Content Include="Content\js\lib\messages.pl.js" />
+    <Content Include="Content\js\lib\parsley.extend.js" />
+    <Content Include="Content\js\lib\parsley.js" />
+    <Content Include="Content\js\social.js" />
+    <Content Include="Content\js\views\screw-on.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\site.less" />
+    <Content Include="Content\css\media-print.less" />
+    <Content Include="Content\css\mixins.less" />
+    <Content Include="Content\css\normalize.less" />
+    <Content Include="Content\css\scaffolding.less" />
+    <Content Include="Content\css\type.less" />
+    <Content Include="Content\css\variables.less" />
+    <Content Include="Content\css\code.less" />
+    <Content Include="Content\css\buttons.less" />
+    <Content Include="Content\css\wrench.less" />
+    <Content Include="Content\css\media-tablets.less" />
+    <Content Include="Content\css\media-desktops.less" />
+    <Content Include="Content\css\blog.less" />
+    <Content Include="Content\css\navbar.less" />
+    <Content Include="Content\css\forms.less" />
+    <Content Include="Content\css\parsley.less" />
+    <None Include="Content\js\lib\jquery-1.9.1.intellisense.js" />
+    <Content Include="Content\js\lib\html5shiv.js" />
+    <Content Include="Content\js\lib\jquery-1.9.1.js" />
+    <Content Include="Content\js\lib\jquery-1.9.1.min.js" />
+    <Content Include="wlwmanifest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\head\_dcme.cshtml" />
+    <Content Include="Views\Shared\head\_ie9win8.cshtml" />
+    <Content Include="Views\Shared\head\_keys.cshtml" />
+    <Content Include="Views\Shared\head\_meta.cshtml" />
+    <Content Include="Views\Shared\head\_me.cshtml" />
+    <Content Include="Views\Shared\_googleAnalytics.cshtml" />
+    <Content Include="Views\Shared\head\_og.cshtml" />
+    <Content Include="Views\Shared\head\_social.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="NLog.config" />
+    <None Include="Properties\PublishProfiles\gutek.pl - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\_html5shiv.cshtml" />
+    <Content Include="Views\Screw\on.cshtml" />
+    <Content Include="Views\Shared\head\_apple.cshtml" />
+    <Content Include="Views\Shared\_ScrewOnLayout.cshtml" />
+    <Content Include="Views\Screw\Copy of on.cshtml" />
+    <Content Include="Views\ErrorRaven\ravendb.cshtml" />
+    <Content Include="Views\Posts\list.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8848/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

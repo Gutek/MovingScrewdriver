@@ -1,0 +1,20 @@
+﻿@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowAppleMeta)
+{
+    @* 
+        http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+        http://www.mobilexweb.com/blog/iphone-5-ios-6-html5-developers
+        http://mathiasbynens.be/notes/touch-icons 
+        
+        we do not need to specify anything else if files
+        are avaliable in root directory
+    *@
+    <!-- apple ios -->
+    <meta name="apple-mobile-web-app-title" content="@ViewBag.BlogConfig.MetaAppleMobileWebAppTitle" />
+    <meta name="apple-mobile-web-app-capable" content="@ViewBag.BlogConfig.MetaAppleMobileWebAppCapable" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="@ViewBag.BlogConfig.MetaAppleMobileWebAppStatusBarStyle" />
+    if(ViewBag.BlogConfig.MetaAppleITunesAppShouldRender)
+    {
+    <meta name="apple-itunes-app" content="@ViewBag.BlogConfig.MetaAppleITunesApp" />
+    }
+    <!-- /apple ios -->
+}

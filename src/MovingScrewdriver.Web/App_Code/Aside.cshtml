@@ -1,0 +1,18 @@
+﻿@using System.Web.Mvc
+@using MovingScrewdriver.Web.Extensions
+@using MovingScrewdriver.Web.Models
+@using MovingScrewdriver.Web.ViewModels
+
+@helper CommentAuthor(RecentCommentViewModel comment)
+{
+    
+    if (comment.Url.IsNotNullOrWhiteSpace())
+    {
+        <a href="@comment.Url" rel="external nofollow" target="_blank">@comment.Author</a>
+    }
+    else
+    {
+        @:@comment.Author
+    }
+    
+}

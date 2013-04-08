@@ -1,0 +1,19 @@
+@using MovingScrewdriver.Web.Extensions
+
+
+<div class="page-nav">
+    <h3 class="navbar-menu">Menu</h3>
+    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <nav class="nav-collapse collapse">
+        <ul class="nav">
+            <li><a href="@Url.ActionResetPage("AllPosts", "Posts")">Strong g³ówna</a></li>
+            <li><a href="@Url.ActionResetPage("Archive", "PostsByDate")">Archiwum</a></li>
+            @*<li><a href="#">Projekty</a></li>*@
+            <li><a href="@Url.Action("Me", "About")">O Mnie</a></li>
+        </ul>
+    </nav>
+</div>

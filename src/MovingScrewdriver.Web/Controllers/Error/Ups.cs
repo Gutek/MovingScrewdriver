@@ -1,0 +1,14 @@
+﻿using System.Net;
+using System.Web.Mvc;
+
+namespace MovingScrewdriver.Web.Controllers.Error
+{
+    public partial class ErrorController : AbstractController
+    {
+         public ActionResult Ups()
+         {
+             //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+             return View("ups");
+         }
+    }
+}

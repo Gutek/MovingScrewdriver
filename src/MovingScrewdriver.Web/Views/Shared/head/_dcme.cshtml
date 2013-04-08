@@ -1,0 +1,25 @@
+﻿@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowDcMeta)
+{
+    <!-- Dublin Core Metadata Element Set -->
+    @* 
+        http://dublincore.org/documents/dces/ 
+        http://dublincore.org/documents/usageguide/elements.shtml0
+    *@
+    <meta name="dc.language" content="@ViewBag.BlogConfig.MetaLang" />
+
+    <meta name="dc.title" content="@ViewBag.PageTitle" />
+
+    <meta name="dc.description" content="@ViewBag.BlogConfig.MetaDescription" />
+    <meta name="dc.subject" content="@ViewBag.BlogConfig.MetaKeywords" />
+
+    <meta name="dc.creator" content="@ViewBag.BlogConfig.OwnerFullName" />
+    <meta name="dc.contributor" content="@ViewBag.BlogConfig.OwnerFullName" />
+    <meta name="dc.publisher" content="@ViewBag.BlogConfig.OwnerFullName" />
+    <meta name="dc.right" content="@ViewBag.BlogConfig.MetaCopyright" />
+    
+    <meta name="dc.identifier" content="@ViewBag.PageUrl" />
+
+    <meta name="dc.format" content="text/html" />
+    <meta name="dc.type" content="text" />
+    <!-- /Dublin Core Metadata Element Set -->
+}

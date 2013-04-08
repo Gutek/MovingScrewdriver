@@ -1,0 +1,32 @@
+﻿@using MovingScrewdriver.Web.Extensions
+@model MovingScrewdriver.Web.ViewModels.PostViewModel.Comment 
+
+@{
+    var important = Model.IsImportant ? "owner" : string.Empty;
+}
+
+
+<article class="comment @important" id="comment-@Model.Id">
+    <div class="meta">
+        @Screw.CommentGravatar(Model)
+                    
+        <small>
+            Dodany przez @Screw.CommentAuthor(Model)
+        </small>
+        <small>
+            <time datetime="@Model.CreatedAt.ToZuluDateTime()" pubdate="pubdate">
+                        
+                <a class="permalink" href="#comment-@Model.Id">
+                    @Model.CreatedAt.ToLocalDateTime()
+                </a>
+
+            </time>
+        </small>
+    </div>
+    <div class="body">
+        <div class="alert">
+            Twój komentarz musi zostać zatwierdzony!
+        </div>
+        @Model.Content
+    </div>
+</article>

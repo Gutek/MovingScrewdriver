@@ -1,0 +1,122 @@
+﻿@using System;
+
+@* Returns: PageTitle, MetaLang, PageUrl *@
+@Screw.DoTitleMagic()
+@Screw.SetBaseUrl()
+
+<!DOCTYPE html>
+<html lang="@ViewBag.MetaLang">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        
+        <meta name="viewport" content="width=device-width" />
+
+        <title>@ViewBag.PageTitle</title>
+
+        @Html.Partial("head/_meta")
+        
+        @Html.Partial("head/_dcme")
+        @Html.Partial("head/_og")
+        @Html.Partial("head/_social")
+
+        @Html.Partial("head/_me")
+        
+        @Html.Partial("head/_ie9win8")
+        @Html.Partial("head/_apple")
+
+        @Html.Partial("head/_keys")
+        
+        <base href="@ViewBag.BaseUrl"/>
+        
+        @Html.Partial("head/_syndication")
+        
+        <link rel="shortcut icon" type="image/ico" href="@Url.Content("~/favicon.ico")" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.css")" />
+        <link rel="canonical" href="@ViewBag.PageUrl" />
+
+        @RenderSection("head", false)
+
+        @Html.Partial("_html5shiv")
+
+    </head>
+    
+    <body>
+        <!-- fb shit -->
+        <div id="fb-root"></div>
+        <!-- /fb shit -- >
+
+        <!-- header -->
+        <header role="banner">
+            <div>
+                <a href="@Url.Action("Index", "Ui")" rel="home">
+                    <hgroup>
+                        <h1>@ViewBag.BlogConfig.Title <small> @ViewBag.BlogConfig.SubTitle</small> </h1>
+                        <h2>@ViewBag.BlogConfig.Tagline</h2>
+                    </hgroup>
+                </a>
+                
+                @{
+                    Html.RenderPartial("_feeds");
+                    Html.RenderPartial("_navigation");
+                }
+                
+            </div>
+        </header>
+        <!-- /header -->
+
+        <!-- content -->
+        <div class="wrapper">
+            
+            <div class="content" id="content" role="main">
+                @RenderBody()
+            </div>
+            
+            @if (ViewBag.ShowAside == null || ViewBag.ShowAside)
+            {
+                <aside role="complementary">
+
+                    @{
+                        
+                        Html.RenderAction("Me", "Aside");
+                        Html.RenderAction("RecentComments", "Aside");
+                        Html.RenderAction("Twitter", "Aside");
+                    }
+                    
+
+                    @{
+                        //Html.RenderAction("TagCloud", "Tags");
+                    }
+
+                </aside>
+            }
+        </div>
+        <!-- /content -->
+
+        <!-- footer -->
+        @{
+            Html.RenderPartial("_footer");
+        }
+        <!-- /footer -->
+
+        <script type="text/javascript" src="@Url.Content("~/bundles/jquery")"></script>
+        <script>window.jQuery || document.write('<script src="@Url.Content("~/Content/js/lib/jquery-1.9.1.min.js")"><\/script>')</script>
+        
+        <script type="text/javascript" src="@Url.Content("~/bundles/libs")"></script>
+        <script type="text/javascript" src="@Url.Content("~/bundles/app")"></script>
+        @*<script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-transition.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-collapse.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-button.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/messages.pl.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/parsley.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/jquery.pnotify.min.js")"></script>*@
+        @*<script type="text/javascript" src="@Url.Content("~/Content/js/ie10wp8.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/social.js")"></script>*@
+
+        @RenderSection("scripts", false)
+        
+        @Html.Partial("_googleAnalytics")
+    </body>
+
+</html>
