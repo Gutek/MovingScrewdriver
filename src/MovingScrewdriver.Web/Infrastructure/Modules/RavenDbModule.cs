@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using Autofac;
 using MovingScrewdriver.Web.Infrastructure.Indexes;
 using Raven.Client;
@@ -12,26 +13,26 @@ namespace MovingScrewdriver.Web.Infrastructure.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            var embeddedMode = ConfigurationManager.ConnectionStrings["RavenDb"] == null;
 
             IDocumentStore documentStore;
 
-            if (embeddedMode)
-            {
-                documentStore = new EmbeddableDocumentStore
+#if DEBUG
+            documentStore = new DocumentStore
                 {
-                    DataDirectory = "~/App_Data/Raven"
+                    Url = "http://localhost:8080",
+                    DefaultDatabase = "MovingScrewdriver"
                 };
-            }
-            else
-            {
-                documentStore = new DocumentStore
+#else
+            documentStore = new EmbeddableDocumentStore
                 {
-                    ConnectionStringName = "RavenDb"
+                    DataDirectory = "~\\App_Data\\Raven",
+                    //UseEmbeddedHttpServer = true,
+                    //Configuration =
+                    //{
+                    //    Port = 8088,
+                    //}
                 };
-            }
-
-            
+#endif
             documentStore.Initialize();
 
             // not sure if this is a good idea to have this in module registration...

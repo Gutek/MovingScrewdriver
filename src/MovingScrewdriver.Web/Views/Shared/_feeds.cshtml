@@ -1,8 +1,8 @@
 @using MovingScrewdriver.Web.Extensions
 
 @{
-    var feedUrl = ViewBag.BlogConfig.FeedUrl as string;
-    var feedCommentsUrl = ViewBag.BlogConfig.FeedCommentsUrl as string;
+    var feedUrl = ViewBag.BlogConfig == null ? string.Empty : ViewBag.BlogConfig.FeedUrl as string;
+    var feedCommentsUrl = ViewBag.FeedCommentsUrl == null ? string.Empty : ViewBag.BlogConfig.FeedCommentsUrl as string;
 }
 
 <ul class="top-nav">

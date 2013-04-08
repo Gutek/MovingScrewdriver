@@ -19,6 +19,15 @@ namespace MovingScrewdriver.Web
 
         protected void Application_Start()
         {
+            // Work around nasty .NET framework bug
+            try
+            {
+                new Uri("http://fail/first/time?only=%2bplus");
+            }
+            catch (Exception)
+            {
+            }
+
             AreaRegistration.RegisterAllAreas();
             
             AutofacConfig.Configure();
