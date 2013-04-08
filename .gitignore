@@ -71,7 +71,7 @@ StyleCop.Cache
 ##################### 
 # Misc
 ##################### 
-**/App_Data/[Rr]aven
+**/App_Data/*/
 **/old-images
 [Bb]log[Mm][Ll].xml
 **/[Ii]mages/me
