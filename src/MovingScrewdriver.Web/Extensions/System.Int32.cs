@@ -8,6 +8,7 @@ namespace System
          public static string GetCommentsText(this int @this)
          {
              var regex = new Regex("[234]$");
+             var regexTenths = new Regex("(12)|(13)|(14)$");
              var count = @this.ToString(CultureInfo.InvariantCulture);
     
             if (@this == 1)
@@ -15,7 +16,7 @@ namespace System
                 return "komentarz";
             }
 
-            if (regex.IsMatch(count))
+            if (regex.IsMatch(count) && regexTenths.IsMatch(count) == false)
             {
                 return "komentarze";
             }
