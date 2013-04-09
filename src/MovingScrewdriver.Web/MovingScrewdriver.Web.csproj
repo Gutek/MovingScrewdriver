@@ -282,6 +282,7 @@
     <Compile Include="Infrastructure\AutoMapper\Resolvers\UrlResolver.cs" />
     <Content Include="apple-touch-icon-precomposed.png" />
     <Content Include="apple-touch-icon.png" />
+    <Content Include="App_Data\Logs\placeholder.txt" />
     <Content Include="Content\css\pnotify.css">
       <DependentUpon>pnotify.less</DependentUpon>
     </Content>
@@ -1308,6 +1309,7 @@
     <Content Include="Views\Aside\recommend.cshtml" />
     <None Include="Properties\PublishProfiles\blog-gutek - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\blog-gutek - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\gutek.pl - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1443,9 +1445,7 @@
     <Content Include="Views\ErrorRaven\ravendb.cshtml" />
     <Content Include="Views\Posts\list.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\Logs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

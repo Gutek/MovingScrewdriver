@@ -17,8 +17,6 @@ namespace MovingScrewdriver.Web.Services
 
     public class AkismetService : IAkismetService
     {
-        private readonly Logger _log = LogManager.GetCurrentClassLogger();
-
         private IValidator get_api()
         {
             var api = new Validator(AksimetKey);
@@ -113,20 +111,22 @@ namespace MovingScrewdriver.Web.Services
             {
                 if (_aksimetKey.IsNullOrEmpty())
                 {
-                    //using(var session = _store.OpenSession())
+                    using(var session = _store.OpenSession())
                     {
-                        _aksimetKey = _session.Load<ScrewdriverConfig>("Blog/Config").AkismetKey;
+                        _aksimetKey = session.Load<ScrewdriverConfig>("Blog/Config").AkismetKey;
                     }
                 }
 
                 return _aksimetKey;
             }
         }
-        
-        private readonly IDocumentSession _session;
-        public AkismetService(IDocumentSession session)
+
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
+        private readonly IDocumentStore _store;
+        public AkismetService(IDocumentStore store)
         {
-            _session = session;
+            _log.Trace("I'm in Aksimet Service.");
+            _store = store;
         }
     }
 }

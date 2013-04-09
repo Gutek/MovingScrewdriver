@@ -141,6 +141,7 @@
                 
                 @using(Html.BeginForm("Add", "PostComment", new { id = Model.Post.Id }, FormMethod.Post, new { novalidate="novalidate", dataValidate="parsley", id = "commentform" }))
                 {
+                    @Html.AntiForgeryToken()
                     <p>
                         <label for="commenterName">Imię lub Nick (pole wymagane)</label>
                         <input type="text" name="commenterName" id="commenterName" size="22" tabindex="1" aria-required="true" required="required" placeholder="Twoję Imię lub Nick" />

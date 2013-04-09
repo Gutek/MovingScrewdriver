@@ -37,15 +37,15 @@ namespace MovingScrewdriver.Web
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-            using (var session = AutofacConfig.IoC.Resolve<IDocumentSession>())
-            {
-                if (Server.GetLastError() != null)
-                {
-                    return;
-                }
+            //using (var session = AutofacConfig.IoC.Resolve<IDocumentSession>())
+            //{
+            //    if (Server.GetLastError() != null)
+            //    {
+            //        return;
+            //    }
 
-                session.SaveChanges();
-            }
+            //    session.SaveChanges();
+            //}
         }
         
         protected void Application_Error(object sender, EventArgs e)

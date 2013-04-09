@@ -4,8 +4,10 @@ namespace MovingScrewdriver.Web.Controllers.PostComment
 {
     public partial class PostCommentController : AbstractController
     {
-        private readonly IAkismetService _akismetService;
+        private IAkismetService _akismetService;
+        //public IAkismetService AkismetService { get; set; }
 
+        //public PostCommentController()
         public PostCommentController(IAkismetService akismetService)
         {
             _akismetService = akismetService;

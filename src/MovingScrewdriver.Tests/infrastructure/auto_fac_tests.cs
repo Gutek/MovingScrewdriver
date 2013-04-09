@@ -27,7 +27,7 @@ namespace MovingScrewdriver.Tests.infrastructure
             Assert.True(AutofacConfig.IoC.IsRegisterd<PostCommentController>());
         }
 
-        [Fact(Skip = "Issue with raven embedded")]
+        [Fact]
         public void can_resolve_akisment_service()
         {
             Assert.DoesNotThrow(() => AutofacConfig.IoC.Resolve<IAkismetService>());
@@ -40,7 +40,7 @@ namespace MovingScrewdriver.Tests.infrastructure
             Assert.DoesNotThrow(() => AutofacConfig.IoC.Resolve<IDocumentSession>());
         }
 
-        [Fact(Skip = "Issue with raven embedded")]
+        [Fact]
         public void can_resolve_controllers()
         {
             var types = typeof(PostCommentController).Assembly.GetTypes();

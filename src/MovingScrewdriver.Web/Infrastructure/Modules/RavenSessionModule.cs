@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Integration.Mvc;
 using Raven.Client;
 
 namespace MovingScrewdriver.Web.Infrastructure.Modules
@@ -11,7 +12,16 @@ namespace MovingScrewdriver.Web.Infrastructure.Modules
         {
             builder.Register(c => c.Resolve<IDocumentStore>().OpenSession())
                    .As<IDocumentSession>()
-                   .InstancePerLifetimeScope()
+                   .InstancePerHttpRequest()
+                   .OnRelease(session =>
+                   {
+                       if (HttpContextFactory.GetHttpContext().Server.GetLastError() == null)
+                       {
+                           session.SaveChanges();
+                       }
+
+                       session.Dispose();
+                   });
             ;
         }
     }

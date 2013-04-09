@@ -21,11 +21,16 @@ namespace MovingScrewdriver.Web
              builder.RegisterModule<RavenSessionModule>();
              builder.RegisterModule<AutoMapperModule>();
 
+             builder.RegisterType<ArchiveDateValidator>()
+                    .As<IArchiveDateValidator>()
+                 ;
+             builder.RegisterType<AkismetService>()
+                 .As<IAkismetService>()
+                ;
+
              builder.RegisterControllers(Assembly.GetExecutingAssembly())
                     .PropertiesAutowired();
 
-             builder.RegisterType<ArchiveDateValidator>().As<IArchiveDateValidator>();
-             builder.RegisterType<AkismetService>().As<IAkismetService>();
 
              //builder.RegisterAssemblyTypes()
              //       .AsSelf()
