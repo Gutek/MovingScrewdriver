@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
@@ -12,8 +13,8 @@ namespace MovingScrewdriver.Web
     public class AutofacConfig
     {
         public static IocFactory IoC { get; set; }
-         public static void Configure()
-         {
+        public static void Configure()
+        {
              var builder = new ContainerBuilder();
 
              builder.RegisterModule<RavenDbModule>();
@@ -33,7 +34,7 @@ namespace MovingScrewdriver.Web
              var container = builder.Build();
              IoC = new IocFactory(container);
              DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-         }
+        }
 
         public class IocFactory
         {
@@ -44,9 +45,19 @@ namespace MovingScrewdriver.Web
                 _container = container;
             }
 
+            public object Resolve(Type type)
+            {
+                return _container.Resolve(type);
+            }
+
             public T Resolve<T>()
             {
                 return _container.Resolve<T>();
+            }
+
+            public bool IsRegisterd<T>()
+            {
+                return _container.IsRegistered<T>();
             }
         }
     }

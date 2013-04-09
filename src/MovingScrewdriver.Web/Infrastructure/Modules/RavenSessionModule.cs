@@ -12,15 +12,7 @@ namespace MovingScrewdriver.Web.Infrastructure.Modules
             builder.Register(c => c.Resolve<IDocumentStore>().OpenSession())
                    .As<IDocumentSession>()
                    .InstancePerLifetimeScope()
-                   .OnRelease(session =>
-                   {
-                       if (HttpContextFactory.GetHttpContext().Server.GetLastError() == null)
-                       {
-                           session.SaveChanges();
-                       }
-
-                       session.Dispose();
-                   });
+            ;
         }
     }
 }

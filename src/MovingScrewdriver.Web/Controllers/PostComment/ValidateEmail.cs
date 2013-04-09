@@ -6,6 +6,7 @@ namespace MovingScrewdriver.Web.Controllers.PostComment
     public partial class PostCommentController : AbstractController
     {
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult ValidateEmail(string commenterEmail)
         {
             var user = CurrentSession.GetUserByEmail(commenterEmail);

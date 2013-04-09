@@ -10,6 +10,7 @@ namespace MovingScrewdriver.Web.Controllers.PostComment
     {
          [HttpPost]
          [AjaxOnly]
+         [ValidateAntiForgeryToken]
          public ActionResult Add(CommentInput input, int id)
          {
              if (!ModelState.IsValid)

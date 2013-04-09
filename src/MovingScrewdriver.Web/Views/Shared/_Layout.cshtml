@@ -1,4 +1,5 @@
 ﻿@using System;
+@using System.Web.Optimization
 
 @* Returns: PageTitle, MetaLang, PageUrl *@
 @Screw.DoTitleMagic()
@@ -33,7 +34,7 @@
         
         <link rel="shortcut icon" type="image/ico" href="@Url.Content("~/favicon.ico")" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.css")" />
+        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.min.css")" />
         <link rel="canonical" href="@ViewBag.PageUrl" />
 
         @RenderSection("head", false)
@@ -50,7 +51,7 @@
         <!-- header -->
         <header role="banner">
             <div>
-                <a href="@Url.Action("Index", "Ui")" rel="home">
+                <a href="@Url.Action("AllPosts", "Posts")" rel="home">
                     <hgroup>
                         <h1>@ViewBag.BlogConfig.Title <small> @ViewBag.BlogConfig.SubTitle</small> </h1>
                         <h2>@ViewBag.BlogConfig.Tagline</h2>
@@ -82,7 +83,7 @@
                         Html.RenderAction("Me", "Aside");
                         Html.RenderAction("RecentComments", "Aside");
                         Html.RenderAction("Twitter", "Aside");
-                        Html.RenderAction("Recommend", "Aside");
+                        //Html.RenderAction("Recommend", "Aside");
                     }
                     
 
@@ -100,20 +101,9 @@
             Html.RenderPartial("_footer");
         }
         <!-- /footer -->
-
-        <script type="text/javascript" src="@Url.Content("~/bundles/jquery")"></script>
-        <script>window.jQuery || document.write('<script src="@Url.Content("~/Content/js/lib/jquery-1.9.1.min.js")"><\/script>')</script>
         
-        <script type="text/javascript" src="@Url.Content("~/bundles/libs")"></script>
-        <script type="text/javascript" src="@Url.Content("~/bundles/app")"></script>
-        @*<script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-transition.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-collapse.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/bootstrap-button.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/messages.pl.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/parsley.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/lib/jquery.pnotify.min.js")"></script>*@
-        @*<script type="text/javascript" src="@Url.Content("~/Content/js/ie10wp8.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Content/js/social.js")"></script>*@
+        @Scripts.Render("~/bundles/jquery",
+                                 "~/bundles/libs");
 
         @RenderSection("scripts", false)
         

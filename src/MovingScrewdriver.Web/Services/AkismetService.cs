@@ -113,9 +113,9 @@ namespace MovingScrewdriver.Web.Services
             {
                 if (_aksimetKey.IsNullOrEmpty())
                 {
-                    using(var session = _store.OpenSession())
+                    //using(var session = _store.OpenSession())
                     {
-                        _aksimetKey = session.Load<ScrewdriverConfig>("Blog/Config").AkismetKey;
+                        _aksimetKey = _session.Load<ScrewdriverConfig>("Blog/Config").AkismetKey;
                     }
                 }
 
@@ -123,10 +123,10 @@ namespace MovingScrewdriver.Web.Services
             }
         }
         
-        private readonly IDocumentStore _store;
-        public AkismetService(IDocumentStore store)
+        private readonly IDocumentSession _session;
+        public AkismetService(IDocumentSession session)
         {
-            _store = store;
+            _session = session;
         }
     }
 }

@@ -296,6 +296,12 @@
     <Content Include="Content\css\pnotify.min.css">
       <DependentUpon>pnotify.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\prettify.css">
+      <DependentUpon>prettify.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\prettify.min.css">
+      <DependentUpon>prettify.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\prism.css">
       <DependentUpon>prism.less</DependentUpon>
     </Content>
@@ -315,10 +321,34 @@
     <Content Include="Content\images\dp.png" />
     <Content Include="Content\images\me\me.png" />
     <Content Include="Content\images\me\me.jpg" />
+    <Content Include="Content\js\lib\prettify\lang-apollo.js" />
+    <Content Include="Content\js\lib\prettify\lang-basic.js" />
+    <Content Include="Content\js\lib\prettify\lang-clj.js" />
+    <Content Include="Content\js\lib\prettify\lang-css.js" />
+    <Content Include="Content\js\lib\prettify\lang-dart.js" />
+    <Content Include="Content\js\lib\prettify\lang-erlang.js" />
+    <Content Include="Content\js\lib\prettify\lang-go.js" />
+    <Content Include="Content\js\lib\prettify\lang-hs.js" />
+    <Content Include="Content\js\lib\prettify\lang-lisp.js" />
+    <Content Include="Content\js\lib\prettify\lang-llvm.js" />
+    <Content Include="Content\js\lib\prettify\lang-lua.js" />
+    <Content Include="Content\js\lib\prettify\lang-ml.js" />
+    <Content Include="Content\js\lib\prettify\lang-mumps.js" />
+    <Content Include="Content\js\lib\prettify\lang-n.js" />
+    <Content Include="Content\js\lib\prettify\lang-rd.js" />
+    <Content Include="Content\js\lib\prettify\lang-scala.js" />
+    <Content Include="Content\js\lib\prettify\lang-sql.js" />
+    <Content Include="Content\js\lib\prettify\lang-tcl.js" />
+    <Content Include="Content\js\lib\prettify\lang-tex.js" />
+    <Content Include="Content\js\lib\prettify\lang-vb.js" />
+    <Content Include="Content\js\lib\prettify\lang-vhdl.js" />
+    <Content Include="Content\js\lib\prettify\lang-wiki.js" />
+    <Content Include="Content\js\lib\prettify\lang-yaml.js" />
+    <Content Include="Content\js\lib\prettify\prettify.js" />
     <Content Include="Content\js\lib\_prism.js" />
     <Content Include="Content\js\lib\jquery.pnotify.js" />
     <Content Include="Content\js\lib\rainbow.js" />
-    <Content Include="Content\js\views\add-comment.js" />
+    <Content Include="Content\js\views\post-view.js" />
     <Content Include="Content\old-images\0017ae2b_medium.jpg" />
     <Content Include="Content\old-images\0017ae2b_medium_thumb.jpg" />
     <Content Include="Content\old-images\01 %281%29.png" />
@@ -1234,6 +1264,7 @@
     <Content Include="Content\css\prism.less" />
     <Content Include="Content\css\rainbow.less" />
     <Content Include="Content\old-images\Thumbs.db" />
+    <Content Include="Content\css\prettify.less" />
     <None Include="Infrastructure\AutoMapper\TagsListViewModelMapperProfile.cs" />
     <Compile Include="Infrastructure\HttpContextFactory.cs" />
     <Compile Include="Infrastructure\Indexes\Posts_Statistics.cs" />

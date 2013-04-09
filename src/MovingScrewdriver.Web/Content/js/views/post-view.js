@@ -6,7 +6,8 @@
         $submit = $('#submit'),
         $comments = $('#form');
 
-
+    $('pre').addClass('prettyprint').addClass('linenums');
+    prettyPrint();
 
     $submit.click(function (evt) {
         var isValid, url, post, i, j, curr, len, jLen, jCurr;

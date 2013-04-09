@@ -43,6 +43,12 @@ namespace MovingScrewdriver.Web
                 defaults: new { controller = "Posts", action = "AllPosts" }
             );
 
+            _routes.MapRoute(
+                name: "404",
+                url: "{*url}",
+                defaults: new { controller = "Error", action = "Error404" }
+            );
+
             testing_fallback();
         }
 

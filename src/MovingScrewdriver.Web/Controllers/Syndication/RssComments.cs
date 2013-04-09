@@ -11,6 +11,7 @@ namespace MovingScrewdriver.Web.Controllers.Syndication
 {
     public partial class SyndicationController : AbstractController
     {
+        [OutputCache(CacheProfile = "DynamicContent")]
         public ActionResult RssComments()
         {
             RavenQueryStatistics stats = null;
@@ -54,7 +55,7 @@ namespace MovingScrewdriver.Web.Controllers.Syndication
                 )
             ));
 
-            return XDoc(rss, responseETagHeader);
+            return XDoc(rss, responseETagHeader, contentType: "application/rss+xml");
         }
     }
 }

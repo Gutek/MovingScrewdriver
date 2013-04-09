@@ -1,13 +1,12 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Xml.Linq;
-using MovingScrewdriver.Web.Controllers.Syndication;
 using MovingScrewdriver.Web.Extensions;
 
 namespace MovingScrewdriver.Web.Controllers.Services
 {
     public partial class ServicesController : AbstractController
     {
+        [OutputCache(CacheProfile = "StaticContent")]
         public ActionResult Rsd()
         {
             var ns = XNamespace.Get("http://archipelago.phrasewise.com/rsd");
@@ -26,7 +25,7 @@ namespace MovingScrewdriver.Web.Controllers.Services
                                                     )
                                         )
                             )
-                        ), typeof(ServicesController).FullName);
+                        ), typeof(ServicesController).FullName, contentType: "application/rsd+xml");
         }
     }
 }

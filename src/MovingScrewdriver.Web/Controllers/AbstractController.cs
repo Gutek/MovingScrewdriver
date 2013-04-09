@@ -32,6 +32,7 @@ namespace MovingScrewdriver.Web.Controllers
                 return _blogConfig;
             }
         }
+
         public BlogOwner BlogOwner
         {
             get

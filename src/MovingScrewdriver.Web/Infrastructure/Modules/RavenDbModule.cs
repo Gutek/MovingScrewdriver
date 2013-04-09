@@ -36,7 +36,7 @@ namespace MovingScrewdriver.Web.Infrastructure.Modules
             documentStore.Initialize();
 
             // not sure if this is a good idea to have this in module registration...
-            IndexCreation.CreateIndexes(typeof(Tags_Count).Assembly, documentStore);
+            IndexCreation.CreateIndexes(typeof(Posts_Statistics).Assembly, documentStore);
 
             builder
                 .RegisterInstance(documentStore)

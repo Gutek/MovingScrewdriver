@@ -10,6 +10,7 @@ using MovingScrewdriver.Web.Controllers.Error;
 using MovingScrewdriver.Web.Extensions;
 using MovingScrewdriver.Web.Infrastructure;
 using NLog;
+using Raven.Client;
 
 namespace MovingScrewdriver.Web
 {
@@ -19,15 +20,6 @@ namespace MovingScrewdriver.Web
 
         protected void Application_Start()
         {
-            // Work around nasty .NET framework bug
-            try
-            {
-                new Uri("http://fail/first/time?only=%2bplus");
-            }
-            catch (Exception)
-            {
-            }
-
             AreaRegistration.RegisterAllAreas();
             
             AutofacConfig.Configure();
@@ -43,6 +35,19 @@ namespace MovingScrewdriver.Web
             Context.Response.AddHeader("X-Pingback", urlHelper.AbsoluteContent("~/services/pingback.ashx"));
         }
 
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            using (var session = AutofacConfig.IoC.Resolve<IDocumentSession>())
+            {
+                if (Server.GetLastError() != null)
+                {
+                    return;
+                }
+
+                session.SaveChanges();
+            }
+        }
+        
         protected void Application_Error(object sender, EventArgs e)
         {
             var ex = Server.GetLastError();
@@ -73,26 +78,6 @@ namespace MovingScrewdriver.Web
                         break;
                 }
             }
-
-            //var httpex = ex as HttpException;
-            //if (HttpContextFactory.GetHttpContext().IsCustomErrorEnabled && httpex != null)
-            //{
-            //    Response.Clear();
-            //    var routeData = new RouteData();
-            //    routeData.Values.Add("controller", "Error");
-
-            //    if (httpex.GetHttpCode() == 404)
-            //    {
-            //        routeData.Values.Add("action", "Error404");
-            //    }
-            //    else
-            //    {
-            //        routeData.Values.Add("action", "Ups");
-            //    }
-
-            //    IController controller = DependencyResolver.Current.GetService<ErrorController>();
-            //    controller.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
-            //}
         }
 
         private static TTarget InnerExLoop<TTarget>(Exception ex)
