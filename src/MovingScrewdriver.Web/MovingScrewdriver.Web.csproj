@@ -1309,6 +1309,7 @@
     <Content Include="Views\Aside\recommend.cshtml" />
     <None Include="Properties\PublishProfiles\blog-gutek - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\blog-gutek - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\blog.gutek.pl - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\gutek.pl - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
