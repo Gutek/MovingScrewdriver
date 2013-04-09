@@ -35,6 +35,10 @@ namespace MovingScrewdriver.Web.Controllers.Syndication
                              new XAttribute("version", "2.0"),
                              new XElement("channel",
                                           new XElement("title", BlogConfig.MetaApplicationName),
+                                          new XElement("language", "pl-pl"),
+                                          new XElement("generator", "MovingScrewdriver Blog Engine"),
+                                          new XElement("docs", "http://www.rssboard.org/rss-specification"),
+                                          //new XElement("image", Url.AbsoluteContent("~/")),
                                           new XElement("link", Url.AbsoluteAction("AllPosts", "Posts")),
                                           new XElement("description", BlogConfig.MetaDescription ?? BlogConfig.MetaApplicationName),
                                           new XElement("copyright", String.Format("{0} (c) {1}", BlogConfig.MetaCopyright, ApplicationTime.Current.Year)),
@@ -43,17 +47,18 @@ namespace MovingScrewdriver.Web.Controllers.Syndication
                                           let postLink = Url.AbsoluteAction("Details", "PostDetails", post.ToRouteData())
                                           select new XElement("item",
                                                               new XElement("title", post.Title),
-                                                              new XElement("description", MvcHtmlString.Create(post.Content),
                                                               new XElement("link", postLink),
-                                                                new XElement("guid", postLink),
-                                                              new XElement("pubDate", post.PublishAt.ToString("R"))
+                                                              new XElement("comments", postLink + "#comments"),
+                                                              //new XElement("author", BlogOwner.FullName),
+                                                              new XElement("guid", postLink),
+                                                              new XElement("pubDate", post.PublishAt.ToString("R")),
+                                                              new XElement("description", post.Content)
                                             )
                                 )
                     )
-                )
-            );
+                );
 
-            return XDoc(rss, responseETagHeader, contentType: "application/rss+xml");
+            return XDoc(rss, responseETagHeader);
         }
 
     }

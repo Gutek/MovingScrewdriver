@@ -5,17 +5,17 @@
 @if(ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowOgMeta)
 {
     <!-- Open Grapth Tags http://ogp.me/ -->
-    <meta name="og:title" content="@ViewBag.PageTitle" />
-    <meta name="og:type" content="blog" />
+    <meta property="og:title" content="@ViewBag.PageTitle" />
+    <meta property="og:type" content="blog" />
     
-    <meta name="og:site_name" content="@ViewBag.BlogFullTitle" />
+    <meta property="og:site_name" content="@ViewBag.BlogConfig.BlogFullTitle" />
     
-    <meta name="og:description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
-    <meta name="og:locale" content="@ViewBag.BlogConfig.MetaOgLocale" />
+    <meta property="og:description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
+    <meta property="og:locale" content="@ViewBag.BlogConfig.MetaOgLocale" />
     @*<meta name="og:locale:alternate" content="@ViewBag.BlogConfig.MetaOgLocale" />*@
     
-    <meta name="og:url" content="@ViewBag.PageUrl" />
-    <meta name="og:image" content="@ViewBag.BlogConfig.MetaOgImage" />
+    <meta property="og:url" content="@ViewBag.PageUrl" />
+    <meta property="og:image" content="@ViewBag.BlogConfig.MetaOgImage" />
 
     <!-- /Open Grapth Tags-->
 }

@@ -315,6 +315,7 @@
     <Content Include="Content\images\dp.png" />
     <Content Include="Content\images\me\me.png" />
     <Content Include="Content\images\me\me.jpg" />
+    <Content Include="Content\images\me\wrench.png" />
     <Content Include="Content\js\lib\prettify\lang-apollo.js" />
     <Content Include="Content\js\lib\prettify\lang-basic.js" />
     <Content Include="Content\js\lib\prettify\lang-clj.js" />
@@ -1277,7 +1278,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Content\images\archive.ico" />
     <Content Include="Content\images\twitter.ico" />
+    <Content Include="humans.txt" />
     <Content Include="LICENSE.txt" />
+    <Content Include="robots.txt" />
     <Content Include="Views\PostDetails\details.cshtml" />
     <Content Include="Views\PostsByCategory\list.cshtml" />
     <Content Include="Views\PostsByTags\list.cshtml" />

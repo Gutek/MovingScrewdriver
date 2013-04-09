@@ -1,4 +1,5 @@
-﻿@{
+﻿@using MovingScrewdriver.Web.Extensions
+@{
     var desc = ViewBag.Description as string;
 }
 
@@ -11,13 +12,14 @@
         <meta name="twitter:site" content="@string.Format("@{0}", ViewBag.BlogConfig.MetaTwitterName)"/> 
         <meta name="twitter:creator" content="@string.Format("@{0}", ViewBag.BlogConfig.MetaTwitterName)"/> 
         <meta name="twitter:card" content="summary"/> 
+        <meta name="twitter:image" content="@Url.AbsoluteContent("~/apple-touch-icon-114x114-precomposed.png")"/> 
         <meta name="twitter:description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
         @* Twitter is doing fallback to OG, so if OG is specified, rest will be filled *@
     }
 
     if (ViewBag.BlogConfig.MetaFbAppShouldRender)
     {
-        <meta name="fb:app_id" content="@ViewBag.BlogConfig.MetaFbAppId" />
+        <meta property="fb:admins" content="@ViewBag.BlogConfig.MetaFbAppId" />
     }
     <!-- /social-->
 }

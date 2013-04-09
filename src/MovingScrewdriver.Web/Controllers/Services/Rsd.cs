@@ -14,7 +14,7 @@ namespace MovingScrewdriver.Web.Controllers.Services
             return XDoc(new XDocument(
                         new XElement(ns + "service",
                                      new XElement(ns + "engineName", "Moving Screwdriver Blog"),
-                                     new XElement(ns + "engineLink", "http://URL"),
+                                     new XElement(ns + "engineLink", "http://blog.gutek.pl"),
                                      new XElement(ns + "homePageLink", Url.AbsoluteAction("AllPosts", "Posts")),
                                      new XElement(ns + "apis",
                                                   new XElement(ns + "api",
@@ -25,7 +25,7 @@ namespace MovingScrewdriver.Web.Controllers.Services
                                                     )
                                         )
                             )
-                        ), typeof(ServicesController).FullName, contentType: "application/rsd+xml");
+                        ), typeof(ServicesController).FullName);
         }
     }
 }

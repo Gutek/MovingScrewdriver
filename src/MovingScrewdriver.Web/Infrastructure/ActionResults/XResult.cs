@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Web.Mvc;
 using System.Xml;
 using System.Xml.Linq;
@@ -27,7 +28,7 @@ namespace MovingScrewdriver.Web.Infrastructure.ActionResults
             
             context.HttpContext.Response.ContentType = _contentType.IsNullOrWhiteSpace() ? "text/xml" : _contentType;
 
-            using (var xmlWriter = XmlWriter.Create(context.HttpContext.Response.OutputStream))
+            using (var xmlWriter = XmlWriter.Create(context.HttpContext.Response.OutputStream, new XmlWriterSettings{ Encoding = Encoding.UTF8 }))
             {
                 _document.WriteTo(xmlWriter);
                 xmlWriter.Flush();

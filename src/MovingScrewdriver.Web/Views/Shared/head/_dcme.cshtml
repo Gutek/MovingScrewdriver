@@ -1,4 +1,8 @@
-﻿@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowDcMeta)
+﻿@{
+    var desc = ViewBag.Description as string;
+}
+
+@if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowDcMeta)
 {
     <!-- Dublin Core Metadata Element Set -->
     @* 
@@ -9,7 +13,7 @@
 
     <meta name="dc.title" content="@ViewBag.PageTitle" />
 
-    <meta name="dc.description" content="@ViewBag.BlogConfig.MetaDescription" />
+    <meta name="dc.description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
     <meta name="dc.subject" content="@ViewBag.BlogConfig.MetaKeywords" />
 
     <meta name="dc.creator" content="@ViewBag.BlogConfig.OwnerFullName" />

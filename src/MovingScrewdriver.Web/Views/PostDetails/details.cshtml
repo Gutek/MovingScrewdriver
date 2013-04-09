@@ -47,13 +47,13 @@
         <ul>
             <li>
                 <a href="https://twitter.com/share" class="twitter-share-button" 
-                   data-url="@ViewBag.PageUrl" 
+                   data-url="@Url.AbsoluteAction("Details", Model.Post.ToRouteData())" 
                    data-via="@Model.Post.Author.TwitterNick" 
                     @*data-text="@Model.Post.Title"*@
                    data-lang="pl">Tweet</a>
             </li>
             <li>
-                <div class="fb-like" data-href="@ViewBag.PageUrl" 
+                <div class="fb-like" data-href="@Url.AbsoluteAction("Details", Model.Post.ToRouteData())" 
                      data-send="false" 
                      data-layout="button_count" 
                      data-width="450" data-show-faces="false">
@@ -61,7 +61,7 @@
                 </div>
             </li>
             <li>
-                <div class="g-plusone" data-size="medium" data-href="@ViewBag.PageUrl">Poleć to w Google</div>
+                <div class="g-plusone" data-size="medium" data-href="@Url.AbsoluteAction("Details", Model.Post.ToRouteData())">Poleć to w Google</div>
             </li>
         </ul>
     </footer>

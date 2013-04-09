@@ -45,17 +45,17 @@ namespace MovingScrewdriver.Web.Controllers.Syndication
                                       let post = commentsTuple.Item2
                                       let link = Url.AbsoluteAction("Details", "PostDetails", post.ToRouteData()) + "#comment-" + comment.Id
                                       select new XElement("item",
-                                                          new XElement("title", "Komentarz {0} do {1}".FormatWith(comment.Author, post.Title),
+                                                          new XElement("title", "Komentarz {0} do {1}".FormatWith(comment.Author, post.Title)),
                                                           new XElement("description", comment.Content),
                                                           new XElement("link", link),
-                                                            new XElement("guid", link),
+                                                          new XElement("guid", link),
                                                           new XElement("pubDate", comment.Created.ToString("R"))
                                         )
                             )
                 )
-            ));
+            );
 
-            return XDoc(rss, responseETagHeader, contentType: "application/rss+xml");
+            return XDoc(rss, responseETagHeader);
         }
     }
 }
