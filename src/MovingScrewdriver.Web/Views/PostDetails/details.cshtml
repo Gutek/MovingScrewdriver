@@ -87,6 +87,12 @@
                     </a>
                 </li>
             }
+            else
+            {
+                <li class="pull-right">
+                    &nbsp;
+                </li>
+            }
         </ul>
     </nav>
         
@@ -162,7 +168,7 @@
                         <textarea name="commenterComment" id="commenterComment" rows="10" tabindex="4" aria-required="true" required="required" placeholder="Twój komentarz..."></textarea>
                     </p>
                     <p>
-                        <input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+                        <input type="checkbox" name="subscribe" id="subscribe" value="true" style="width: auto;" />
                         <label for="subscribe">Poinformuj mnie o nowych komentarzach poprzez email</label>
                     </p>
                     <p>
@@ -195,4 +201,5 @@
 @section scripts
 {
     <script type="text/javascript" src="@Url.Content("~/bundles/add-comment")"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/content/js/views/add-comment.js")"></script>*@
 }

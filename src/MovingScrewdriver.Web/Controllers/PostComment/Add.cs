@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using MovingScrewdriver.Web.Infrastructure.ActionAttributes;
 using MovingScrewdriver.Web.Models;
 using MovingScrewdriver.Web.ViewModels;
@@ -13,6 +14,17 @@ namespace MovingScrewdriver.Web.Controllers.PostComment
          {
              if (!ModelState.IsValid)
              {
+                 return Json(new
+                 {
+                     error = ValidationErrors
+                 });
+             }
+
+             if (BlogOwner.Email.Equals(input.CommenterEmail, StringComparison.OrdinalIgnoreCase)
+                 && Request.IsAuthenticated == false)
+             {
+                 ModelState.AddModelError("CommenterEmail", "Nie możesz użyć tego adresu e-mail, należy on do właściciela bloga.");
+
                  return Json(new
                  {
                      error = ValidationErrors
@@ -38,7 +50,7 @@ namespace MovingScrewdriver.Web.Controllers.PostComment
              comment.Id = comments.GenerateNewCommentId();
              comment.IsSpam = _akismetService.CheckForSpam(comment);
 
-             if (Request.IsAuthenticated)
+             if (Request.IsAuthenticated && BlogOwner.Email.Equals(comment.Email, StringComparison.OrdinalIgnoreCase))
              {
                  //_akismetService.SubmitHam(comment);
                  comment.IsSpam = false;

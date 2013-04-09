@@ -65,7 +65,7 @@ namespace MovingScrewdriver.Web.Controllers
                              select new
                              {
                                  key = "{0}{1}".FormatWith(char.ToLower(m.Key[0]), m.Key.Substring(1)),
-                                 errors = m.Value.Errors.Select(x => x.ErrorMessage)
+                                 errors = m.Value.Errors.Select(x => x.ErrorMessage).ToList()
                              };
 
 

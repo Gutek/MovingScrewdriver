@@ -290,7 +290,6 @@
     <Compile Include="Infrastructure\AutoMapper\Resolvers\UrlResolver.cs" />
     <Content Include="apple-touch-icon-precomposed.png" />
     <Content Include="apple-touch-icon.png" />
-    <Content Include="App_Data\Raven\raven-data.ico" />
     <Content Include="Content\css\pnotify.css">
       <DependentUpon>pnotify.less</DependentUpon>
     </Content>
@@ -1235,45 +1234,6 @@
     <Content Include="Content\css\prism.less" />
     <Content Include="Content\css\rainbow.less" />
     <Content Include="Content\old-images\Thumbs.db" />
-    <Content Include="App_Data\Raven\Data" />
-    <Content Include="App_Data\Raven\IndexDefinitions\Category%252fCount.index" />
-    <Content Include="App_Data\Raven\IndexDefinitions\PostComments%252fCreationDate.index" />
-    <Content Include="App_Data\Raven\IndexDefinitions\Posts%252fByMonthPublished%252fPosts.index" />
-    <Content Include="App_Data\Raven\IndexDefinitions\Posts%252fStatistics.index" />
-    <Content Include="App_Data\Raven\IndexDefinitions\Raven%252fDocumentsByEntityName.index" />
-    <Content Include="App_Data\Raven\IndexDefinitions\Tags%252fCount.index" />
-    <Content Include="App_Data\Raven\IndexDefinitions\Temp%252fPosts%252fByIsDeletedAndPublishAtSortByPublishAt.index" />
-    <Content Include="App_Data\Raven\Indexes\Category%252fCount\index.version" />
-    <Content Include="App_Data\Raven\Indexes\Category%252fCount\segments.gen" />
-    <Content Include="App_Data\Raven\Indexes\Category%252fCount\segments_2" />
-    <Content Include="App_Data\Raven\Indexes\Category%252fCount\_0.cfs" />
-    <Content Include="App_Data\Raven\Indexes\PostComments%252fCreationDate\index.version" />
-    <Content Include="App_Data\Raven\Indexes\PostComments%252fCreationDate\segments.gen" />
-    <Content Include="App_Data\Raven\Indexes\PostComments%252fCreationDate\segments_2" />
-    <Content Include="App_Data\Raven\Indexes\PostComments%252fCreationDate\_0.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fByMonthPublished%252fPosts\index.version" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fByMonthPublished%252fPosts\segments.gen" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fByMonthPublished%252fPosts\segments_3" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fByMonthPublished%252fPosts\_0.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fByMonthPublished%252fPosts\_1.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fStatistics\index.version" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fStatistics\segments.gen" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fStatistics\segments_2" />
-    <Content Include="App_Data\Raven\Indexes\Posts%252fStatistics\_0.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Raven%252fDocumentsByEntityName\index.version" />
-    <Content Include="App_Data\Raven\Indexes\Raven%252fDocumentsByEntityName\segments.gen" />
-    <Content Include="App_Data\Raven\Indexes\Raven%252fDocumentsByEntityName\segments_2" />
-    <Content Include="App_Data\Raven\Indexes\Raven%252fDocumentsByEntityName\_0.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Tags%252fCount\index.version" />
-    <Content Include="App_Data\Raven\Indexes\Tags%252fCount\segments.gen" />
-    <Content Include="App_Data\Raven\Indexes\Tags%252fCount\segments_4" />
-    <Content Include="App_Data\Raven\Indexes\Tags%252fCount\_0.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Tags%252fCount\_1.cfs" />
-    <Content Include="App_Data\Raven\Indexes\Tags%252fCount\_2.cfs" />
-    <Content Include="App_Data\Raven\logs\RVN.log" />
-    <Content Include="App_Data\Raven\logs\RVNres00001.jrs" />
-    <Content Include="App_Data\Raven\logs\RVNres00002.jrs" />
-    <Content Include="App_Data\Raven\system\RVN.chk" />
     <None Include="Infrastructure\AutoMapper\TagsListViewModelMapperProfile.cs" />
     <Compile Include="Infrastructure\HttpContextFactory.cs" />
     <Compile Include="Infrastructure\Indexes\Posts_Statistics.cs" />
@@ -1322,6 +1282,8 @@
     <Content Include="Views\Error\ups.cshtml" />
     <Content Include="Views\PostsByDate\archive_not_exists.cshtml" />
     <Content Include="Views\Aside\recommend.cshtml" />
+    <None Include="Properties\PublishProfiles\blog-gutek - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\blog-gutek - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1449,7 +1411,6 @@
     <Content Include="Views\Shared\head\_social.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="NLog.config" />
-    <None Include="Properties\PublishProfiles\gutek.pl - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_html5shiv.cshtml" />
     <Content Include="Views\Screw\on.cshtml" />
     <Content Include="Views\Shared\head\_apple.cshtml" />
@@ -1460,8 +1421,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Logs\" />
-    <Folder Include="App_Data\Raven\IndexDefinitions\TemporaryIndexDefinitionsAsSource\" />
-    <Folder Include="App_Data\Raven\temp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

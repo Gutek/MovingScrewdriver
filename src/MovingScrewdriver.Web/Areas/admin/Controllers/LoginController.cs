@@ -44,7 +44,7 @@ namespace MovingScrewdriver.Web.Areas.admin.Controllers
         {
             if (retrunUrl.IsNullOrEmpty())
             {
-                return RedirectToAction("AllPosts", "Posts");
+                return RedirectToAction("AllPosts", "Posts", new { area = "" });
             }
                 
             return Redirect(retrunUrl);
