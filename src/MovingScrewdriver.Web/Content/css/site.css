@@ -1676,6 +1676,19 @@ footer[role="contentinfo"] p {
   float: left;
   width: 100%;
 }
+.post .entry::before,
+.post .entry::after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+  line-height: 0;
+}
+.post .entry::after {
+  clear: both;
+}
 .post .entry ul,
 .post .entry ol {
   margin-bottom: 1.5em;
@@ -1699,6 +1712,19 @@ footer[role="contentinfo"] p {
   width: 100%;
   font-size: 11.9px;
 }
+.post nav::before,
+.post nav::after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+  line-height: 0;
+}
+.post nav::after {
+  clear: both;
+}
 .post nav ul {
   list-style: none;
   padding-left: 0px;
@@ -1713,6 +1739,19 @@ footer[role="contentinfo"] p {
   float: left;
   width: 100%;
 }
+.post footer::before,
+.post footer::after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+  line-height: 0;
+}
+.post footer::after {
+  clear: both;
+}
 .post footer ul {
   list-style: none;
   padding: 0;
@@ -1726,6 +1765,19 @@ footer[role="contentinfo"] p {
   clear: both;
   float: left;
   position: relative;
+}
+.comments::before,
+.comments::after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+  line-height: 0;
+}
+.comments::after {
+  clear: both;
 }
 .comments .trackback {
   padding-top: 10px;
@@ -1742,6 +1794,19 @@ footer[role="contentinfo"] p {
 }
 .comments .comment.owner {
   background-color: #eeeeee;
+}
+.comments .comment::before,
+.comments .comment::after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+  line-height: 0;
+}
+.comments .comment::after {
+  clear: both;
 }
 .comments .comment > h1 {
   display: none;

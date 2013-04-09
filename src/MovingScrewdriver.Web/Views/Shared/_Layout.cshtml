@@ -83,7 +83,7 @@
                         Html.RenderAction("Me", "Aside");
                         Html.RenderAction("RecentComments", "Aside");
                         Html.RenderAction("Twitter", "Aside");
-                        //Html.RenderAction("Recommend", "Aside");
+                        Html.RenderAction("Recommend", "Aside");
                     }
                     
 
@@ -103,7 +103,7 @@
         <!-- /footer -->
         
         @Scripts.Render("~/bundles/jquery",
-                                 "~/bundles/libs");
+                                 "~/bundles/libs")
 
         @RenderSection("scripts", false)
         
