@@ -8,17 +8,17 @@
     @if (Model.IsFirstPage)
     {
         <p>
-            Tego dnia nic nie opublikowałem :(
+            Tego dnia/miesiąca/roku nic nie opublikowałem :(
         </p>
     }
     else
     {
         <p>
-            Może kiedyś uda mi sięw ciągu dnia napisać <strong>@Model.CurrentPage</strong> stron postów :) jednak tego dnia na pewno tego nie osiągnąłem.
+            Może kiedyś uda mi sięw ciągu dnia/miesiąca/roku napisać <strong>@Model.CurrentPage</strong> stron postów :) jednak tego tym razem na pewno tego nie osiągnąłem.
         </p>
         <p>
             Przepraszam za kłopot, kliknij 
-            <a href="@Url.Action("ByDate", new { page = Model.LastPage, year = ViewBag.Year, month = ViewBag.Month, day = ViewBag.Day })" 
+            <a href="@Url.Action("ByDate", new { page = Model.LastPage, year = ViewBag.Year, month = "{0:00}".FormatWith((int)ViewBag.Month), day = ViewBag.Day })" 
                title="Przekierowanie na stronę @Model.LastPage">tutaj</a> 
             a zostaniesz przekierowany do ostatniej strony zawierającej posty.
         </p>
