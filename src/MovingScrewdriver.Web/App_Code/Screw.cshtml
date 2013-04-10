@@ -117,7 +117,7 @@
     var url = "http://www.gravatar.com/avatar.php?gravatar_id={0}&size=48&default=identicon";
     
     <img src="@url.FormatWith(comment.EmailHash)" 
-         alt="Zdjęcie przedstawiające Gravatar @comment.Author" />
+         alt="Gravatar @comment.Author dla komentarza z dnia i godziny: @comment.CreatedAt.ToLocalDateTime()" />
 }
 
 @helper CommentAuthor(PostViewModel.Comment comment) {

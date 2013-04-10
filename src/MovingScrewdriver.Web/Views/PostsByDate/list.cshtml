@@ -25,7 +25,7 @@
                 <ul>
                     <li>
                         Opublikowany 
-                        <a href="@postUrl" rel="bookmark">
+                        <a href="@postUrl">
                             <time datetime="@post.PublishedAt.ToZuluDateTime()" pubdate="pubdate">@post.PublishedAt.ToLocalDate()</time>
                         </a>
                     </li>
@@ -56,7 +56,7 @@
     
     @if (Model.HasNextPage || Model.HasPrevPage)
 {
-    <nav class="next-prev">
+    <nav class="next-prev" role="navigation">
         <ul>
             
             @if (Model.HasNextPage)

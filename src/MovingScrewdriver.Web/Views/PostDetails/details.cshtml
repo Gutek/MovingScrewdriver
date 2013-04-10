@@ -68,7 +68,7 @@
 
     @Html.TrackbackRdf(Model)
 
-    <nav>
+    <nav role="navigation">
         <ul>
             
             @if (Model.PreviousPost != null)
@@ -139,19 +139,18 @@
                     
                 <h3>Dołącz do dyskusji</h3>
                 
-                @using(Html.BeginForm("Add", "PostComment", new { id = Model.Post.Id }, FormMethod.Post, new { novalidate="novalidate", dataValidate="parsley", id = "commentform" }))
+                @using(Html.BeginForm("Add", "PostComment", new { id = Model.Post.Id }, FormMethod.Post, new { role="form", novalidate="novalidate", dataValidate="parsley", id = "commentform" }))
                 {
                     @Html.AntiForgeryToken()
                     <p>
                         <label for="commenterName">Imię lub Nick (pole wymagane)</label>
-                        <input type="text" name="commenterName" id="commenterName" size="22" tabindex="1" aria-required="true" required="required" placeholder="Twoję Imię lub Nick" />
+                        <input type="text" name="commenterName" id="commenterName" size="22" aria-required="true" required="required" placeholder="Twoję Imię lub Nick" />
                     </p>
                     <p>
                         <label for="commenterEmail">Email (nie będzie opublikowany) (pole wymagane)</label>
                         <input type="email" name="commenterEmail" 
                                id="commenterEmail" 
                                size="22" 
-                               tabindex="2" 
                                aria-required="true" 
                                required="required" 
                                placeholder="Twój email"
@@ -162,18 +161,18 @@
                     </p>
                     <p>
                         <label for="commenterWebsite">Strona domowa</label>
-                        <input type="url" name="commenterWebsite" id="commenterWebsite" size="22" tabindex="3" placeholder="Twoja strona domowa"/>
+                        <input type="url" name="commenterWebsite" id="commenterWebsite" size="22" placeholder="Twoja strona domowa"/>
                     </p>
                     <p>
                         <label for="commenterComment">Komentarz (pole wymagane)</label>
-                        <textarea name="commenterComment" id="commenterComment" rows="10" tabindex="4" aria-required="true" required="required" placeholder="Twój komentarz..."></textarea>
+                        <textarea name="commenterComment" id="commenterComment" rows="10" aria-required="true" required="required" placeholder="Twój komentarz..."></textarea>
                     </p>
                     <p>
                         <input type="checkbox" name="subscribe" id="subscribe" value="true" style="width: auto;" />
                         <label for="subscribe">Poinformuj mnie o nowych komentarzach poprzez email</label>
                     </p>
                     <p>
-                        <input name="submit" type="submit" id="submit" class="btn-submit" tabindex="5" value="Dodaj komentarz" data-loading-text="dodaje komentarz..."  />
+                        <input name="submit" type="submit" id="submit" class="btn-submit" value="Dodaj komentarz" data-loading-text="dodaje komentarz..."  />
                     </p>
                 }
 

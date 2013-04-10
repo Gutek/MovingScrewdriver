@@ -19,7 +19,7 @@
                 {
                     <li>
                         <time datetime="@post.PublishAt.ToZuluDateTime()" pubdate="pubdate">[@post.PublishAt.ToLocalDate()]</time>
-                        <a href="@Url.Action("Details", "PostDetails", post.ToRouteData())">@post.Title</a>
+                        <a href="@Url.Action("Details", "PostDetails", post.ToRouteData())" rel="bookmark">@post.Title</a>
                     </li>
                 }
             </ul>
@@ -28,7 +28,7 @@
     
     @if (Model.HasNextPage || Model.HasPrevPage)
     {
-        <nav class="next-prev">
+        <nav class="next-prev" role="navigation">
             <ul>
             
                 @if (Model.HasNextPage)
