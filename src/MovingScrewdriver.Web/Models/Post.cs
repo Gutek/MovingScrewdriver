@@ -35,7 +35,6 @@ namespace MovingScrewdriver.Web.Models
         public int CommentsCount { get; set; }
         public string CommentsId { get; set; }
 
-        [JsonIgnore]
         public IEnumerable<string> TagsAsSlugs
         {
             get
@@ -51,7 +50,7 @@ namespace MovingScrewdriver.Web.Models
                 }
             }
         }
-        [JsonIgnore]
+        
         public IEnumerable<string> CategoriesAsSlugs
         {
             get

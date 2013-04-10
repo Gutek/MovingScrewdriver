@@ -93,7 +93,7 @@
     
     var pattern = "<a href=\"{0}\" title=\"Zobacz wszystkie posty w kategorii {1}\">{1}</a>";
 
-    var text = categories.Select(cat => pattern.FormatWith(urlHelper.Action("ByCategory", "PostsByCategory", new {slug = cat.Slug }), cat.Title)).ToList();
+    var text = categories.Select(cat => pattern.FormatWith(urlHelper.ActionResetPage("ByCategory", "PostsByCategory", new {slug = cat.Slug }), cat.Title)).ToList();
 
     @:@MvcHtmlString.Create(string.Join(", ", text))
 }
@@ -105,7 +105,7 @@
 
     var text = tags.Select(
         cat => pattern.FormatWith(
-            urlHelper.Action("ByTags", "PostsByTags", new { slug = cat.Slug })
+            urlHelper.ActionResetPage("ByTags", "PostsByTags", new { slug = cat.Slug })
             , cat.Title)
         ).ToList();
 

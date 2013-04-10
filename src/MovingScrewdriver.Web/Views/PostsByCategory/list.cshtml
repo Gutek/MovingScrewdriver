@@ -26,7 +26,7 @@
                     <li>
                         Opublikowany 
                         <a href="@postUrl">
-                            <time datetime="@post.PublishedAtPubdate" pubdate="pubdate">@post.PublishedAtFormatted</time>
+                            <time datetime="@post.PublishedAt.ToZuluDateTime()" pubdate="pubdate">@post.PublishedAt.ToLocalDate()</time>
                         </a>
                     </li>
                     <li>|</li>
