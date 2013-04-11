@@ -50,6 +50,7 @@ namespace MovingScrewdriver.Web.Models
             public string Author { get; set; }
             public string Email { get; set; }
             public string Url { get; set; }
+            public bool Subscribe { get; set; }
 
             public bool Important { get; set; }
             public bool IsSpam { get; set; }

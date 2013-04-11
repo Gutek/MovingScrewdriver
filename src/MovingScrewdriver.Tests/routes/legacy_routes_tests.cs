@@ -17,6 +17,7 @@ namespace MovingScrewdriver.Tests.routes
          {
              "~/page/about.aspx".ShouldMapTo<LegacyController>(a => a.About());
              "~/page/About.aspx".ShouldMapTo<LegacyController>(a => a.About());
+             "~/author/gutek.aspx".ShouldMapTo<LegacyController>(a => a.About());
          }
 
         [Fact]
@@ -24,6 +25,11 @@ namespace MovingScrewdriver.Tests.routes
          {
              "~/contact.aspx".ShouldMapTo<LegacyController>(a => a.Contact());
              "~/Contact.aspx".ShouldMapTo<LegacyController>(a => a.Contact());
+         }
+        [Fact]
+         public void should_match_all_posts()
+         {
+             "~/default.aspx".ShouldMapTo<LegacyController>(a => a.AllPosts());
          }
 
         [Fact]
@@ -35,6 +41,8 @@ namespace MovingScrewdriver.Tests.routes
         [Fact]
          public void should_match_post_by_slug()
          {
+             "~/post/{0}/{1}/{2}/{3}.aspxSee".FormatWith(_year, _month, _day, _slug)
+                 .ShouldMapTo<LegacyController>(a => a.PostBySlug(_year, _month, _day, _slug));
              "~/post/{0}/{1}/{2}/{3}.aspx".FormatWith(_year, _month, _day, _slug)
                  .ShouldMapTo<LegacyController>(a => a.PostBySlug(_year, _month, _day, _slug));
          }

@@ -157,6 +157,18 @@ namespace MovingScrewdriver.Web
             );
 
             _routes.MapRoute(
+                name: "legacy-post-details-special-case-from-webmasters-tool",
+                url: "post/{year}/{month}/{day}/{slug}.aspxSee",
+                defaults: new { controller = "Legacy", action = "PostBySlug" },
+                constraints: new
+                {
+                    year = MatchPositiveInteger,
+                    month = MatchPositiveInteger,
+                    day = MatchPositiveInteger
+                }
+            );
+
+            _routes.MapRoute(
                 name: "legacy-post-details",
                 url: "post/{year}/{month}/{day}/{slug}.aspx",
                 defaults: new { controller = "Legacy", action = "PostBySlug" },
@@ -175,6 +187,12 @@ namespace MovingScrewdriver.Web
             );
 
             _routes.MapRoute(
+                name: "legacy-author",
+                url: "author/gutek.aspx",
+                defaults: new { controller = "Legacy", action = "About" }
+            );
+
+            _routes.MapRoute(
                 name: "legacy-contact",
                 url: "contact.aspx",
                 defaults: new { controller = "Legacy", action = "Contact" }
@@ -184,6 +202,11 @@ namespace MovingScrewdriver.Web
                 name: "legacy-post-details-by-id",
                 url: "post.aspx",
                 defaults: new { controller = "Legacy", action = "PostByUid" }
+            );
+            _routes.MapRoute(
+                name: "legacy-default-page",
+                url: "default.aspx",
+                defaults: new { controller = "Legacy", action = "AllPosts" }
             );
         }
 

@@ -30,6 +30,7 @@ namespace MovingScrewdriver.Web.Infrastructure.AutoMapper
             CreateMap<CommentInput, PostComments.Comment>()
                 .ForMember(x => x.Content, o => o.MapFrom(m => m.CommenterComment))
                 .ForMember(x => x.Email, o => o.MapFrom(m => m.CommenterEmail))
+                .ForMember(x => x.Subscribe, o => o.MapFrom(m => m.Subscribe))
                 .ForMember(x => x.Type, o => o.MapFrom(m => CommentType.Comment))
                 .ForMember(x => x.Created, o => o.MapFrom(m => ApplicationTime.Current))
                 .ForMember(x => x.Author, o => o.MapFrom(m => m.CommenterName))

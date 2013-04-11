@@ -13,7 +13,7 @@ namespace MovingScrewdriver.Web.Controllers.Legacy
          {
              var oldPost = CurrentSession.Query<Post>()
                  .PublishedAt(year, month, day)
-                 .WithSlug(slug)
+                 .WithSlug(slug, true)
                  .FirstOrDefault();
 
              if (oldPost != null)
