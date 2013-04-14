@@ -22,7 +22,8 @@ namespace MovingScrewdriver.Web.Infrastructure.Indexes
         {
             Map = postComments => from postComment in postComments
                                   from comment in postComment.Comments
-                                  where comment.IsSpam == false
+                                  where comment.IsSpam == false 
+                                  && comment.Type == CommentType.Comment
                                   select new
                                   {
                                       Created = comment.Created,

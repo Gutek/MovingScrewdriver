@@ -175,6 +175,7 @@
     <Compile Include="Controllers\Error\404.cs" />
     <Compile Include="Controllers\Error\Ups.cs" />
     <Compile Include="Controllers\Legacy\AllPosts.cs" />
+    <Compile Include="Controllers\Legacy\PostsByCategory.cs" />
     <Compile Include="Controllers\PostComment\Add.cs" />
     <Compile Include="Controllers\PostComment\PostCommentController.cs" />
     <Compile Include="Controllers\PostComment\ValidateEmail.cs" />
@@ -229,7 +230,6 @@
     <Compile Include="Infrastructure\ActionResults\XResult.cs" />
     <Compile Include="Infrastructure\ApplicationTime.cs" />
     <Compile Include="Infrastructure\AutoMapper\Resolvers\DescriptionResolver.cs" />
-    <Compile Include="Infrastructure\AutoMapper\TrackbackProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\RecentCommentsViewModelProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\DefaultMappingProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\AbstractProfile.cs" />

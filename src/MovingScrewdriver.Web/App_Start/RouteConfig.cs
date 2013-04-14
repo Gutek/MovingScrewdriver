@@ -181,6 +181,12 @@ namespace MovingScrewdriver.Web
             );
 
             _routes.MapRoute(
+                name: "legacy-posts-by-category",
+                url: "category/{slug}.aspx",
+                defaults: new { controller = "Legacy", action = "PostsByCategory" }
+            );
+
+            _routes.MapRoute(
                 name: "legacy-about",
                 url: "page/About.aspx",
                 defaults: new { controller = "Legacy", action = "About" }

@@ -2052,6 +2052,7 @@ ol.linenums {
   /* IE indents via margin-left */
 
   padding: 0px;
+  margin-bottom: 0px !important;
 }
 ol.linenums li {
   padding-left: 12px;

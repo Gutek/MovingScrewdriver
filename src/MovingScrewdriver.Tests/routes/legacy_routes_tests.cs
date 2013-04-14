@@ -48,6 +48,13 @@ namespace MovingScrewdriver.Tests.routes
          }
 
         [Fact]
+        public void should_match_posts_by_category()
+        {
+
+            "~/category/{0}.aspx".FormatWith(_slug)
+                .ShouldMapTo<LegacyController>(a => a.PostsByCategory(_slug));
+        }
+        [Fact]
         public void should_match_posts_by_year()
         {
 

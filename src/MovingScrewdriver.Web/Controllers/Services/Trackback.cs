@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Xml.Linq;
 using MovingScrewdriver.Web.Extensions;
+using MovingScrewdriver.Web.Infrastructure;
 using MovingScrewdriver.Web.Models;
 using MovingScrewdriver.Web.ViewModels;
 
@@ -61,9 +62,17 @@ namespace MovingScrewdriver.Web.Controllers.Services
                 return TrackbackError("Trackback already registered");
             }
 
-            var comment = Mapper.Map<PostComments.Comment>(model);
-
+            var comment = new PostComments.Comment();
             comment.Id = comments.GenerateNewCommentId();
+            comment.Created = ApplicationTime.Current;
+            comment.Content = "Trackback od {0} - {1}".FormatWith(model.title, model.excerpt);
+            comment.Author = model.blog_name;
+            comment.Type = CommentType.Trackback;
+            comment.UserAgent = GeneralUtils.GetClientAgent();
+            comment.UserHostAddress = GeneralUtils.GetClientIp();
+            comment.Email = CommentType.Trackback.ToString();
+            comment.Url = model.url;
+
             comment.IsSpam = _akismetService.CheckForSpam(comment);
 
             if (comment.IsSpam)

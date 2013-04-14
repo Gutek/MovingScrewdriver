@@ -3,6 +3,7 @@ using System.Linq;
 using Autofac;
 using CookComputing.XmlRpc;
 using MovingScrewdriver.Web.Extensions;
+using MovingScrewdriver.Web.Infrastructure;
 using MovingScrewdriver.Web.Models;
 using NLog;
 using Raven.Client;
@@ -45,7 +46,7 @@ namespace MovingScrewdriver.Web.Services
             var title = string.Empty;
             if (targetUri.ExistsOn(sourceUri, out title) == false)
             {
-                _log.Warn("SPAM: someone tried to add pinback when without linking to our site. Source URI: {0}. Pinback to: {1}", sourceUri, targetUri);
+                _log.Warn("SPAM: someone tried to add pinback without linking to our site. Source URI: {0}. Pinback to: {1}", sourceUri, targetUri);
                 throw new XmlRpcFaultException(17, "The source URI does not contain a link to the target URI, and so cannot be used as a source.");
             }
 
@@ -87,6 +88,7 @@ namespace MovingScrewdriver.Web.Services
 
                 var comment = new PostComments.Comment();
                 comment.Id = comments.GenerateNewCommentId();
+                comment.Created = ApplicationTime.Current;
                 comment.Author = GeneralUtils.GetDomain(sourceUri);
                 comment.Email = CommentType.Pingback.ToString();
                 comment.Type = CommentType.Pingback;
@@ -116,6 +118,11 @@ namespace MovingScrewdriver.Web.Services
 
         private string get_slug(string url)
         {
+            if (url.EndsWith("/"))
+            {
+                url = url.Substring(0, url.Length - 1);
+            }
+
             var start = url.LastIndexOf("/") + 1;
             var slug = url.Substring(start).ToLowerInvariant();
 
