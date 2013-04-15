@@ -1,4 +1,13 @@
 ﻿@if (ViewBag.BlogConfig != null)
 {
-    <meta name="google-site-verification" content="@ViewBag.BlogConfig.GoogleSiteVerificationKey" />
+    if (ViewBag.BlogConfig.GoogleSiteVerificationKey != string.Empty)
+    {
+        <meta name="google-site-verification" content="@ViewBag.BlogConfig.GoogleSiteVerificationKey" />
+    }
+    if (ViewBag.BlogConfig.BingSiteVerificationKey != string.Empty)
+    {
+        <meta name="msvalidate.01" content="@ViewBag.BlogConfig.BingSiteVerificationKey" />
+    }
+    
+    
 }

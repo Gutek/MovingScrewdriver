@@ -29,6 +29,7 @@ namespace MovingScrewdriver.Web.Models
         public bool GoogleAnalyticsShouldRender { get { return GoogleAnalyticsKey.IsNotNullOrEmpty(); } }
         public string AkismetKey { get; set; }
         public string GoogleSiteVerificationKey { get; set; }
+        public string BingSiteVerificationKey { get; set; }
 
         // blog metadata
         public string MetaTitle { get; set; }
