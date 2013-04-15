@@ -15,6 +15,12 @@ namespace MovingScrewdriver.Tests.routes
          }
 
          [Fact]
+         public void should_match_sitemap()
+         {
+             "~/sitemap.xml".ShouldMapTo<ServicesController>(a => a.GoogleSiteMap());
+         }
+
+         [Fact]
          public void should_match_post_trackback()
          {
              var blog_name = "test";

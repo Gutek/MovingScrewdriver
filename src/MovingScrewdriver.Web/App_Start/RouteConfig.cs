@@ -87,11 +87,11 @@ namespace MovingScrewdriver.Web
                 }
             );
 
-            //_routes.MapRoute(
-            //    name: "google-site-map",
-            //    url: "sitemap.xml",
-            //    defaults: new { controller = "Services", action = "GoogleSiteMap" }
-            //);
+            _routes.MapRoute(
+                name: "google-site-map",
+                url: "sitemap.xml",
+                defaults: new { controller = "Services", action = "GoogleSiteMap" }
+            );
         }
 
         private void syndication()
