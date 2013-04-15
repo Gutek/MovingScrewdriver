@@ -30,6 +30,10 @@ namespace MovingScrewdriver.Web
             bundles.Add(new ScriptBundle("~/bundles/screw-on").Include(
                 "~/content/js/views/screw-on.js"
                 ));
+
+            bundles.Add(new StyleBundle("~/bundles/css").Include(
+                "~/content/css/site.css"
+                ));
         }
     }
 }

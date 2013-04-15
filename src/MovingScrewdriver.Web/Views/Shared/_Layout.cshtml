@@ -33,8 +33,11 @@
         @Html.Partial("head/_syndication")
         
         <link rel="shortcut icon" type="image/ico" href="@Url.Content("~/favicon.ico")" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.min.css")" />
+        @*<link href='http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.min.css")" />*@
+        
+        @Styles.Render("~/bundles/css")
+
         <link rel="canonical" href="@ViewBag.PageUrl" />
 
         @RenderSection("head", false)
