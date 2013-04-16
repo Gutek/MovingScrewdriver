@@ -1,5 +1,4 @@
-﻿@import url("http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext");
-/*!
+﻿/*!
  * MovingScrewdriver v1.0.0
  *
  * Copyright 2013 Jakub Gutkowski
@@ -896,7 +895,7 @@ fieldset[disabled] .btn {
   height: 14px;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../images/glyphicons-halflings.png");
+  background-image: url("../Content/images/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -919,7 +918,7 @@ fieldset[disabled] .btn {
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("../images/glyphicons-halflings-white.png");
+  background-image: url("../Content/images/glyphicons-halflings-white.png");
 }
 .icon-glass {
   background-position: 0      0;

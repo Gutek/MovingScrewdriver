@@ -32,12 +32,11 @@
         
         @Html.Partial("head/_syndication")
         
-        <link rel="shortcut icon" type="image/ico" href="@Url.Content("~/favicon.ico")" />
-        @*<link href='http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-        <link rel="stylesheet" media="all" href="@Url.Content("~/Content/css/site.min.css")" />*@
-        
-        @Styles.Render("~/bundles/css")
 
+        <link rel="shortcut icon" type="image/ico" href="@Url.Content("~/favicon.ico")" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif&subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+        <link href="@Styles.Url("~/bundles/css")" rel="stylesheet" type="text/css"/>
+        
         <link rel="canonical" href="@ViewBag.PageUrl" />
 
         @RenderSection("head", false)
@@ -105,9 +104,11 @@
         }
         <!-- /footer -->
         
-        @Scripts.Render("~/bundles/jquery",
-                                 "~/bundles/libs")
-
+        @*<div style="display: none; visibility: hidden" id="gaId" data-gaid="@ViewBag.BlogConfig.GoogleAnalyticsKey"></div>*@
+        <script type="text/javascript" src="@Scripts.Url("~/bundles/jquery")"></script>
+        @*<script async="async" type="text/javascript" src="@Scripts.Url("~/bundles/social")"></script>*@
+        <script async="async" type="text/javascript" src="@Scripts.Url("~/bundles/libs")"></script>
+        
         @RenderSection("scripts", false)
         
         @Html.Partial("_googleAnalytics")

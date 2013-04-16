@@ -103,7 +103,8 @@ namespace MovingScrewdriver.Web.Services
                 };
                 session.Store(comments);
 
-                var publishDate = post.dateCreated ?? DateTime.UtcNow;
+                var currentDate = ApplicationTime.Current;
+                var publishDate = post.dateCreated ?? currentDate;
 
                 var cat = post.categories == null ? new List<string>() : post.categories.ToList();
                 var key = post.mt_keywords.IsNullOrWhiteSpace() ? new List<string>() : post.mt_keywords.Split(',').ToList();
@@ -113,7 +114,8 @@ namespace MovingScrewdriver.Web.Services
                     AuthorId = user.Id,
                     Content = post.description,
                     CommentsId = comments.Id,
-                    Created = DateTimeOffset.Now,
+                    Created = currentDate,
+                    Modified = currentDate,
                     PublishAt = publishDate,
                     Categories = cat.Select(x => new Models.Post.SlugItem { Title = x }).ToList(),
                     Tags = key.Select(x => new Models.Post.SlugItem { Title = x }).ToList(),
@@ -156,11 +158,10 @@ namespace MovingScrewdriver.Web.Services
                 {
                     postToEdit.AuthorId = user.Id;
                 }
-                else
-                {
-                    postToEdit.AuthorId = user.Id;
-                    postToEdit.Modified = DateTimeOffset.Now;
-                }
+                
+                
+                    //postToEdit.AuthorId = user.Id;
+                postToEdit.Modified = ApplicationTime.Current;
 
                 postToEdit.Content = post.description;
                 

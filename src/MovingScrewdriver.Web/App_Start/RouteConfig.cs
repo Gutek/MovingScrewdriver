@@ -210,6 +210,11 @@ namespace MovingScrewdriver.Web
                 defaults: new { controller = "Legacy", action = "PostByUid" }
             );
             _routes.MapRoute(
+                name: "legacy-archive-page",
+                url: "archive.aspx",
+                defaults: new { controller = "Legacy", action = "Archive" }
+            );
+            _routes.MapRoute(
                 name: "legacy-default-page",
                 url: "default.aspx",
                 defaults: new { controller = "Legacy", action = "AllPosts" }

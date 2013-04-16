@@ -9,7 +9,7 @@ namespace MovingScrewdriver.Web
         {
             bundles.UseCdn = true; 
             var jqueryCdn = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js";
-
+            
             bundles.Add(new ScriptBundle("~/bundles/jquery",
                 jqueryCdn).Include(
                 "~/Content/js/lib/jquery-{version}.js"));
@@ -21,9 +21,12 @@ namespace MovingScrewdriver.Web
                         //"~/Content/js/lib/rainbow.js",
                         "~/Content/js/lib/jquery.pnotify.js",
                         "~/Content/js/lib/prettify/prettify.js",
-                        "~/Content/js/*.js"
+                        "~/Content/js/ie10wp8.js"
                         ));
             
+            bundles.Add(new ScriptBundle("~/bundles/social").Include(
+                "~/content/js/social.js"
+                ));
             bundles.Add(new ScriptBundle("~/bundles/post-view").Include(
                 "~/content/js/views/post-view.js"
                 ));
@@ -34,6 +37,8 @@ namespace MovingScrewdriver.Web
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/content/css/site.css"
                 ));
+
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }

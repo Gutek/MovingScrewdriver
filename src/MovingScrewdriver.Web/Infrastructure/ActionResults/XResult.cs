@@ -28,7 +28,7 @@ namespace MovingScrewdriver.Web.Infrastructure.ActionResults
             
             context.HttpContext.Response.ContentType = _contentType.IsNullOrWhiteSpace() ? "text/xml" : _contentType;
 
-            using (var xmlWriter = XmlWriter.Create(context.HttpContext.Response.OutputStream, new XmlWriterSettings{ Encoding = Encoding.UTF8, NewLineOnAttributes = true, Indent = true}))
+            using (var xmlWriter = XmlWriter.Create(context.HttpContext.Response.OutputStream, new XmlWriterSettings{ Encoding = Encoding.UTF8 }))
             {
                 _document.WriteTo(xmlWriter);
                 xmlWriter.Flush();
