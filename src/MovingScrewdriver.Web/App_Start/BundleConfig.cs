@@ -21,7 +21,8 @@ namespace MovingScrewdriver.Web
                         //"~/Content/js/lib/rainbow.js",
                         "~/Content/js/lib/jquery.pnotify.js",
                         "~/Content/js/lib/prettify/prettify.js",
-                        "~/Content/js/ie10wp8.js"
+                        "~/Content/js/ie10wp8.js",
+                        "~/Content/js/app.js"
                         ));
             
             bundles.Add(new ScriptBundle("~/bundles/social").Include(
