@@ -73,6 +73,22 @@
         <div class="wrapper">
             
             <div class="content" id="content" role="main">
+                
+                <!--[if lt IE 7]>
+                    <div class="alert alert-block">
+                        <h4>Przestarzała przeglądarka</h4>
+                        Wykorzystujesz <strong>przestarzałą</strong> przeglądarkę. Proszę  <a href="http://browsehappy.com/">zaktualizuj przeglądarkę</a>
+                        albo zainstaluj <a href="http://www.google.com/chromeframe/?redirect=true">Google Chrome Frame</a> by móc w pełni korzystać ze strony.
+                    </div>
+                <![endif]-->
+
+                <noscript>
+                    <div class="alert alert-block alert-danger">
+                        <h4>Uwaga!</h4>
+                        Masz wyłączony JavaScript w przeglądarce. By móc w pełni skorzystać z bloga, niezbędne jest włączenie JavaScript.
+                    </div>
+                </noscript>
+                
                 @RenderBody()
             </div>
             

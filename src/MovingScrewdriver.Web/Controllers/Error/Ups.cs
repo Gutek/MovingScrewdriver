@@ -8,7 +8,7 @@ namespace MovingScrewdriver.Web.Controllers.Error
         [OutputCache(CacheProfile = "StaticContent")]
          public ActionResult Ups()
          {
-             //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+             Response.StatusCode = (int)HttpStatusCode.InternalServerError;
              return View("ups");
          }
     }
