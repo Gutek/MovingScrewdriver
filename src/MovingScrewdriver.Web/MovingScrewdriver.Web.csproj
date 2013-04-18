@@ -243,6 +243,7 @@
     <Compile Include="Infrastructure\AutoMapper\RecentCommentsViewModelProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\DefaultMappingProfile.cs" />
     <Compile Include="Infrastructure\AutoMapper\AbstractProfile.cs" />
+    <Compile Include="Infrastructure\CacheBundleTransform.cs" />
     <Compile Include="Infrastructure\Filters\LogFilterAttribute.cs" />
     <Compile Include="Infrastructure\GzipModule.cs" />
     <Compile Include="Infrastructure\GZipTransform.cs" />
