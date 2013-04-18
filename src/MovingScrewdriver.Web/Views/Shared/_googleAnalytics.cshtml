@@ -1,16 +1,7 @@
 ﻿<script type="text/javascript">
         
-    (function (d, u) {
-        var s = d.scripts[0], i = u.length, g;
-        while (i--) {
-            g = d.createElement('script'); g.src = '//' + u[i]; g.async = true; s.parentNode.insertBefore(g, s);
-        }
-    }(document, ['apis.google.com/js/plusone.js', 'connect.facebook.net/pl_PL/all.js#xfbml=1', 'platform.twitter.com/widgets.js']));
+    (function (d, u) { var s = d.scripts[0], i = u.length, g; while (i--) { g = d.createElement('script'); g.src = '//' + u[i]; g.async = true; s.parentNode.insertBefore(g, s); } }(document, ['apis.google.com/js/plusone.js', 'connect.facebook.net/pl_PL/all.js#xfbml=1', 'platform.twitter.com/widgets.js']));
     var _gaq = [['_setAccount', '@ViewBag.BlogConfig.GoogleAnalyticsKey'], ['_trackPageview']];
-    (function (d, t) {
-        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        g.src = '//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g, s);
-    }(document, 'script'));
-
+    (function (d, t) { var ga = d.createElement(t); ga.type = 'text/javascript'; ga.async = true; ga.src = '//www.google-analytics.com/ga.js'; var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(ga, s); })(document, 'script');
+    
 </script>

@@ -9,6 +9,7 @@ namespace MovingScrewdriver.Web.Infrastructure
         public void Process(BundleContext context, BundleResponse response)
         {
             context.UseServerCache = true;
+            response.Cacheability = HttpCacheability.Private;
             HttpCachePolicyBase cachePolicy = context.HttpContext.Response.Cache;
             cachePolicy.SetCacheability(response.Cacheability);
             cachePolicy.SetOmitVaryStar(true);
