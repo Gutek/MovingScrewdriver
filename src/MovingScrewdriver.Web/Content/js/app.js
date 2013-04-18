@@ -2,7 +2,10 @@
 
     'use strict';
 
-    $('pre').addClass('prettyprint').addClass('linenums');
-    prettyPrint();
+    var $pre = $('pre');
+    if ($pre.length) {
+        $pre.addClass('prettyprint').addClass('linenums');
+        prettyPrint();
+    }
 
 })(window, jQuery, prettyPrint)
