@@ -102,6 +102,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RavenDB.Client.2.0.2330\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="RouteDebugger">
       <HintPath>..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
     </Reference>
@@ -248,7 +251,9 @@
     <Compile Include="Infrastructure\Indexes\Posts_ByMonthPublished_Posts.cs" />
     <Compile Include="Infrastructure\Indexes\Tags_Count.cs" />
     <Compile Include="Infrastructure\Modules\AutoMapperModule.cs" />
+    <Compile Include="Infrastructure\NotificationService.cs" />
     <Compile Include="Infrastructure\RemoteFile.cs" />
+    <Compile Include="Infrastructure\ScheduleStrategy.cs" />
     <Compile Include="Models\CommentType.cs" />
     <Compile Include="Models\PostReference.cs" />
     <Compile Include="Services\AkismetService.cs" />

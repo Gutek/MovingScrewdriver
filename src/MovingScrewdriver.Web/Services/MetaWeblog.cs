@@ -77,10 +77,14 @@ namespace MovingScrewdriver.Web.Services
     {
         private readonly IDocumentStore _store;
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
+        private readonly INotificationService _notification;
+        private readonly IScheduleStrategy _schedule;
 
         public MetaWeblog()
         {
             _store = AutofacConfig.IoC.Resolve<IDocumentStore>();
+            _notification = AutofacConfig.IoC.Resolve<INotificationService>();
+            _schedule = AutofacConfig.IoC.Resolve<IScheduleStrategy>();
         }
 
         private UrlHelper Url
@@ -104,7 +108,7 @@ namespace MovingScrewdriver.Web.Services
                 session.Store(comments);
 
                 var currentDate = ApplicationTime.Current;
-                var publishDate = post.dateCreated ?? currentDate;
+                var publishDate = post.dateCreated  == null ? currentDate : _schedule.Schedule(new DateTimeOffset(post.dateCreated.Value));
 
                 var cat = post.categories == null ? new List<string>() : post.categories.ToList();
                 var key = post.mt_keywords.IsNullOrWhiteSpace() ? new List<string>() : post.mt_keywords.Split(',').ToList();
@@ -123,6 +127,22 @@ namespace MovingScrewdriver.Web.Services
                     CommentsCount = 0,
                     AllowComments = true,
                 };
+                
+                // only send notification when post is published!
+                if (publishDate == currentDate)
+                {
+                    try
+                    {
+                        _notification.Send(newPost
+                            , new Uri(Url.AbsoluteAction("Details", "PostDetails", newPost.ToRouteData())));
+                        newPost.NotificationSend = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        newPost.NotificationSend = false;
+                    }
+                }
+
                 session.Store(newPost);
                 comments.Post = new PostComments.PostReference
                 {
@@ -161,9 +181,17 @@ namespace MovingScrewdriver.Web.Services
                 
                 
                     //postToEdit.AuthorId = user.Id;
-                postToEdit.Modified = ApplicationTime.Current;
+                var currentDate = ApplicationTime.Current;
+                postToEdit.Modified = currentDate;
 
                 postToEdit.Content = post.description;
+
+                if (post.dateCreated.HasValue
+                    && post.dateCreated.Value != postToEdit.PublishAt.DateTime)
+                {
+                    postToEdit.PublishAt = _schedule.Schedule(new DateTimeOffset(post.dateCreated.Value));
+                    session.Load<PostComments>(postToEdit.CommentsId).Post.Published = postToEdit.PublishAt;
+                }
                 
                 var cat = post.categories == null ? new List<string>() : post.categories.ToList();
                 var key = post.mt_keywords.IsNullOrWhiteSpace() ? new List<string>() : post.mt_keywords.Split(',').ToList();
@@ -180,6 +208,21 @@ namespace MovingScrewdriver.Web.Services
 
                 postToEdit.Title = HttpUtility.HtmlDecode(post.title);
                 postToEdit.Slug = SlugConverter.TitleToSlug(postToEdit.Title);
+
+                // only send notification when post is published!
+                if (currentDate < postToEdit.PublishAt)
+                {
+                    try
+                    {
+                        _notification.Send(postToEdit
+                            , new Uri(Url.AbsoluteAction("Details", "PostDetails", postToEdit.ToRouteData())));
+                        postToEdit.NotificationSend = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        postToEdit.NotificationSend = false;
+                    }
+                }
 
                 session.SaveChanges();
             }

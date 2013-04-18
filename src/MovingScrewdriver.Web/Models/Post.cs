@@ -67,6 +67,8 @@ namespace MovingScrewdriver.Web.Models
             }
         }
 
+        public bool NotificationSend { get; set; }
+
         public class SlugItem
         {
             private string _slug;

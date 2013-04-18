@@ -3,10 +3,12 @@ using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using MovingScrewdriver.Web.Infrastructure;
 using MovingScrewdriver.Web.Infrastructure.Modules;
 using MovingScrewdriver.Web.Infrastructure.Validation;
 using MovingScrewdriver.Web.Services;
 using Raven.Client;
+using RestSharp;
 
 namespace MovingScrewdriver.Web
 {
@@ -21,15 +23,28 @@ namespace MovingScrewdriver.Web
              builder.RegisterModule<RavenSessionModule>();
              builder.RegisterModule<AutoMapperModule>();
 
-             builder.RegisterType<ArchiveDateValidator>()
-                    .As<IArchiveDateValidator>()
+            builder.RegisterType<ArchiveDateValidator>()
+                   .As<IArchiveDateValidator>()
+                ;
+            builder.RegisterType<NotificationService>()
+                    .As<INotificationService>()
                  ;
+
+            builder.RegisterType<ScheduleStrategy>()
+                    .As<IScheduleStrategy>()
+                 ;
+
              builder.RegisterType<AkismetService>()
                  .As<IAkismetService>()
                 ;
 
+            builder.RegisterType<RestClient>()
+                   .As<IRestClient>()
+                ;
+
              builder.RegisterControllers(Assembly.GetExecutingAssembly())
-                    .PropertiesAutowired();
+                    .PropertiesAutowired()
+                    ;
 
 
              //builder.RegisterAssemblyTypes()

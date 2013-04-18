@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using MovingScrewdriver.Web.Extensions;
+using MovingScrewdriver.Web.Infrastructure;
 using MovingScrewdriver.Web.Infrastructure.Indexes;
 using MovingScrewdriver.Web.Models;
 using MovingScrewdriver.Web.ViewModels;
@@ -14,6 +15,7 @@ namespace MovingScrewdriver.Web.Controllers.PostsByDate
         public ActionResult Archive()
         {
             RavenQueryStatistics stats;
+            var now = ApplicationTime.Current;
             var query = CurrentSession
                 .Query<Posts_ByMonthPublished_Posts.ReduceResult, Posts_ByMonthPublished_Posts>()
                 .Statistics(out stats)
@@ -32,6 +34,7 @@ namespace MovingScrewdriver.Web.Controllers.PostsByDate
                     Month = x.Month,
                     Year = x.Year,
                     Posts = x.Posts.Where(y => y.IsDeleted == false)
+                    .Where(y => y.PublishAt <= now)
                     .OrderByDescending(y => y.PublishAt)
                     .Select(y => new PostReference
                     {
