@@ -4,6 +4,8 @@
 
 @if (ViewBag.BlogConfig != null && ViewBag.BlogConfig.ShowDcMeta)
 {
+    var nick = ViewBag.BlogConfig.OwnerNick == null ? string.Empty : " (Gutek)";
+
     <!-- Dublin Core Metadata Element Set -->
     @* 
         http://dublincore.org/documents/dces/ 
@@ -16,9 +18,9 @@
     <meta name="dc.description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
     <meta name="dc.subject" content="@ViewBag.BlogConfig.MetaKeywords" />
 
-    <meta name="dc.creator" content="@ViewBag.BlogConfig.OwnerFullName" />
-    <meta name="dc.contributor" content="@ViewBag.BlogConfig.OwnerFullName" />
-    <meta name="dc.publisher" content="@ViewBag.BlogConfig.OwnerFullName" />
+    <meta name="dc.creator" content="@(ViewBag.BlogConfig.OwnerFullName + nick)" />
+    <meta name="dc.contributor" content="@(ViewBag.BlogConfig.OwnerFullName + nick)" />
+    <meta name="dc.publisher" content="@(ViewBag.BlogConfig.OwnerFullName + nick)" />
     <meta name="dc.right" content="@ViewBag.BlogConfig.MetaCopyright" />
     
     <meta name="dc.identifier" content="@ViewBag.PageUrl" />

@@ -6,11 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using MovingScrewdriver.Web.Controllers.Error;
 using MovingScrewdriver.Web.Extensions;
-using MovingScrewdriver.Web.Infrastructure;
 using NLog;
-using Raven.Client;
 
 namespace MovingScrewdriver.Web
 {

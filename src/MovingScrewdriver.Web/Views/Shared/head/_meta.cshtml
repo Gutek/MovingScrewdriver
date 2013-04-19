@@ -4,9 +4,10 @@
 
 @if(ViewBag.BlogConfig != null)
 {
+    var nick = ViewBag.BlogConfig.OwnerNick == null ? string.Empty : " (Gutek)";
     <!-- site meta -->
     <meta lang="@ViewBag.BlogConfig.MetaLang"/>
-    <meta name="author" content="@ViewBag.BlogConfig.OwnerFullName" />
+    <meta name="author" content="@(ViewBag.BlogConfig.OwnerFullName + nick)" />
     <meta name="copyright" content="@ViewBag.BlogConfig.MetaCopyright" />
     <meta name="description" content="@(desc ?? ViewBag.BlogConfig.MetaDescription)" />
     <meta name="keywords" content="@ViewBag.BlogConfig.MetaKeywords" />
