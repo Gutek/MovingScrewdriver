@@ -15,7 +15,15 @@ namespace MovingScrewdriver.Web.Extensions
             var controller = html.ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
             var routeData = new RouteValueDictionary(html.ViewContext.RouteData.Values);
 
-            routeData["page"] = page;
+            if (page != 1)
+            {
+                routeData["page"] = page;
+            }
+            else
+            {
+                routeData.Remove("page");
+            }
+            
 
             routeData.Remove("action");
             routeData.Remove("controller");
@@ -33,6 +41,14 @@ namespace MovingScrewdriver.Web.Extensions
         public static string NextPageUrl(this HtmlHelper html, int page, bool absolute = true)
         {
             return get_link_with_route_data(html, page + 1, absolute);
+        }
+        public static string LastPageUrl(this HtmlHelper html, int page, bool absolute = true)
+        {
+            return get_link_with_route_data(html, page, absolute);
+        }
+        public static string FirstPageUrl(this HtmlHelper html, bool absolute = true)
+        {
+            return get_link_with_route_data(html, 1, absolute);
         }
 
         public static string PrevPageUrl(this HtmlHelper html, int page, bool absolute = true)

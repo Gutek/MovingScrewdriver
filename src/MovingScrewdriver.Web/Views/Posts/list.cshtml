@@ -50,27 +50,6 @@
     </article>
 }
 
-@if (Model.HasNextPage || Model.HasPrevPage)
-{
-    <nav class="next-prev" role="navigation">
-        <ul>
-            
-            @if (Model.HasNextPage)
-            {
-                <li class="pull-left">
-                    <a href="@Html.NextPageUrl(Model.CurrentPage, false)" rel="prev">
-                        ← Poprzednia strona
-                    </a>
-                </li>
-            }
-            @if (Model.HasPrevPage)
-            {
-                <li class="pull-right">
-                    <a href="@Html.PrevPageUrl(Model.CurrentPage, false)" rel="next">
-                        Następna strona →
-                    </a>
-                </li>
-            }
-        </ul>
-    </nav>
-}
+
+    @Screw.NextPrevLinks(Model)
+    @Screw.FirstLastLinks(Model)

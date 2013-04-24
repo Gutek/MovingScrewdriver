@@ -4,6 +4,63 @@
 @using MovingScrewdriver.Web.Models
 @using MovingScrewdriver.Web.ViewModels
 
+@helper NextPrevLinks(PagingViewModel model)
+{
+    var html = Html.GetPageHelper();
+    if (model.HasNextPage || model.HasPrevPage)
+    {
+    <nav class="next-prev" role="navigation">
+        <ul>
+            
+            @if (model.HasNextPage)
+            {
+                <li class="pull-left">
+                    <a href="@html.NextPageUrl(model.CurrentPage, false)" rel="prev">
+                        ← Poprzednia strona
+                    </a>
+                </li>
+            }
+            @if (model.HasPrevPage)
+            {
+                <li class="pull-right">
+                    <a href="@html.PrevPageUrl(model.CurrentPage, false)" rel="next">
+                        Następna strona →
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+    }
+}
+@helper FirstLastLinks(PagingViewModel model)
+{
+    var html = Html.GetPageHelper();
+    if (model.HasNextPage || model.HasPrevPage)
+    {
+        <nav class="next-prev" role="navigation">
+            <ul>
+            
+                @if (model.HasNextPage)
+                {
+                    <li class="pull-left">
+                        <a href="@html.LastPageUrl(model.LastPage, false)" rel="last">
+                            ← Ostatnia strona
+                        </a>
+                    </li>
+                }
+                @if (model.HasPrevPage)
+                {
+                    <li class="pull-right">
+                        <a href="@html.FirstPageUrl(false)" rel="first">
+                            Pierwsza strona →
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+}
+
 @helper GenerateNextPrevLinkTags(PostsViewModel model) 
 {
     var html = Html.GetPageHelper();
@@ -11,11 +68,13 @@
     if (model.HasNextPage)
     {
         @:<link rel="next" href="@html.NextPageUrl(model.CurrentPage)" />
+@*        @:<link rel="first" href="@html.FirstPageUrl()" />*@
     }
     
     if (model.HasPrevPage)
     {
         @:<link rel="prev" href="@html.PrevPageUrl(model.CurrentPage)" />
+@*        @:<link rel="last" href="@html.LastPageUrl(model.LastPage)" />*@
     }
 }
 @helper GenerateNextPrevLinkTags(PostViewModel model) 

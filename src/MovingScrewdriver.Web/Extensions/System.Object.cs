@@ -9,6 +9,11 @@ namespace System
     {
         public static string ToJson(this object @this, bool forceNoFormatting = false)
         {
+            if (@this == null)
+            {
+                return string.Empty;
+            }
+
             var formatting = Debugger.IsAttached && !forceNoFormatting ? Formatting.Indented : Formatting.None;
 
             return JsonConvert.SerializeObject(@this, formatting);
