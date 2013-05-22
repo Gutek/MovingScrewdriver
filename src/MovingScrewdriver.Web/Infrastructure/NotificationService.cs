@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -26,8 +28,6 @@ namespace MovingScrewdriver.Web.Infrastructure
         private static readonly Regex UrlsRegex = new Regex(
             @"<a.*?href=[""'](?<url>.*?)[""'].*?>(?<name>.*?)</a>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
-
-
         public void Send(Post post, Uri itemUri)
         {
             _log.Trace("sending notification for Post: {0}", post.Title);
@@ -50,6 +50,57 @@ namespace MovingScrewdriver.Web.Infrastructure
         public void SendAsync(Post post, Uri itemUri)
         {
             new Task(() => Send(post, itemUri)).Start();
+        }
+
+        //private bool send_trackback(Post post, Uri itemUri, Uri targetUri)
+        //{
+        //    if (itemUri == null
+        //        || targetUri == null)
+        //    {
+        //        return false;
+        //    }
+
+        //    try
+        //    {
+        //        var request = new RestRequest(Method.GET);
+        //        _restClient.BaseUrl = targetUri.AbsoluteUri;
+        //        var response = _restClient.Execute(request);
+
+        //        var trackbackUri = trackabck_uri(response.Content);
+
+        //        if (trackbackUri == null)
+        //        {
+        //            return false;
+        //        }
+
+        //        request = new RestRequest(Method.POST);
+        //        _restClient.BaseUrl = trackbackUri.AbsoluteUri;
+        //        request.AddParameter("title", post.Title);
+        //        request.AddParameter("url", itemUri.AbsoluteUri);
+        //        request.AddParameter("excerpt", post.Description);
+        //        // method query db for blog configuration etc.
+        //        request.AddParameter("blog_name", get_blog_name());
+
+        //        response = _restClient.Execute(request);
+
+        //        // we can parse error etc, but this should be enough
+        //        return response.StatusCode == HttpStatusCode.OK && response.Content.Contains("<error>0</error>");
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _log.ErrorException("Error occured during sending trackback from: {0} to {1}".FormatWith(itemUri, targetUri), ex);
+        //    }
+
+        //    return false;
+        //}
+
+        private Uri trackabck_uri(string content)
+        {
+            var url = TrackbackLinkRegex.Match(content).Groups[1].ToString().Trim();
+            Uri uri;
+
+            return Uri.TryCreate(url, UriKind.Absolute, out uri) ? uri : null;
         }
 
         private void send_ping(Uri itemUri, Uri targetUri)

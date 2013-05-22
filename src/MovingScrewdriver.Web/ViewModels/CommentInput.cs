@@ -13,7 +13,7 @@ namespace MovingScrewdriver.Web.ViewModels
         [Email(ErrorMessage = "Nie poprawny adres e-mail.")]
         public string CommenterEmail { get; set; }
 
-        [DataAnnotationsExtensions.Url(ErrorMessage = "Nie poprawny URL.")]
+        [DataAnnotationsExtensions.Url(UrlOptions.OptionalProtocol, ErrorMessage = "Nie poprawny URL.")]
         public string CommenterWebsite { get; set; }
 
         [AllowHtml]

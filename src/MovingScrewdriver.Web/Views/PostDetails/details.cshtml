@@ -23,7 +23,7 @@
             </li>
             <li>|</li>
             <li>
-                <a href="#comments" 
+                <a href="@Url.AbsoluteAction("Details", Model.Post.ToRouteData())#comments" 
                    title="@Screw.CommentsLinkTitle(Model.Comments.Count, Model.Post.Title)">
                     @Screw.CommentsText(Model.Comments.Count)
                 </a> 

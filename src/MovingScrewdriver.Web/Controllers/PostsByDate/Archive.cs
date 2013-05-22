@@ -44,6 +44,9 @@ namespace MovingScrewdriver.Web.Controllers.PostsByDate
                         PublishAt = y.PublishAt
                     }).ToList()
                 }).ToList()
+                // quick fix
+                .Where(x => x.Posts.Count > 0)
+                .ToList()
             };
 
             if (stats.TotalResults > 0 && model.ByYearAndMonth.Count == 0)
